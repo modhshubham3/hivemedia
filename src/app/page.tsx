@@ -1,8 +1,8 @@
-import Image from "next/image";
 import ComingSoonBadge from "@/components/ComingSoonBadge";
 import HexField from "@/components/HexField";
 import NotifyForm from "@/components/NotifyForm";
 import Reveal from "@/components/Reveal";
+import BrandLockup from "@/components/BrandLockup";
 import StoryButton from "@/components/StoryButton";
 import HeroArt from "@/components/HeroArt";
 
@@ -93,17 +93,7 @@ export default function Home() {
           className="logo-lockup flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
           aria-label="Hivemedia home"
         >
-          <Image
-            src="/logo-bee.svg"
-            alt=""
-            width={32}
-            height={32}
-            priority
-            className="logo-bee h-8 w-8"
-          />
-          <span className="wipe-highlight font-[family-name:var(--font-syne)] text-[18px] font-bold tracking-[-0.01em]">
-            Hivemedia<span className="text-[var(--yellow-deep)]">.</span>
-          </span>
+          <BrandLockup className="wipe-highlight" />
         </a>
         <div className="tagline hidden text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)] sm:block">
           <span className="wipe-highlight">Creative Agency · Ahmedabad</span>

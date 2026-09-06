@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { BeeMark, BEE_VIEWBOX } from "@/components/Bee";
 
 /**
  * Hero artwork. The scene itself is an unDraw illustration (Katerina
@@ -39,50 +40,12 @@ export default function HeroArt() {
         }`}
       >
         <svg
-          viewBox="-6 -8 118 118"
+          viewBox={BEE_VIEWBOX}
           aria-hidden="true"
           className="bee-hit h-auto w-full"
           onMouseEnter={launch}
         >
-          <g>
-            <g
-              fill="none"
-              stroke="#121110"
-              strokeWidth="6.5"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-            >
-              <path d="M100.1 23 L93.1 49.1 L67 56.1 L47.9 37 L54.9 10.9 L81 3.9 Z" />
-              <path d="M74.8 24.3 L71.3 45.6 L58.6 51.3 L49.3 35.7 L52.7 14.4 L65.4 8.7 Z" />
-            </g>
-            <g transform="rotate(-6 50 75)">
-              <rect
-                x="8"
-                y="58"
-                width="84"
-                height="34"
-                rx="17"
-                fill="#FFCE00"
-                stroke="#121110"
-                strokeWidth="6.5"
-              />
-              <path
-                d="M38 58 V92 M55 58 V92 M72 58 V92"
-                stroke="#121110"
-                strokeWidth="5.5"
-                fill="none"
-              />
-              <circle cx="25" cy="69" r="3.4" fill="#121110" />
-              <path
-                d="M92 75 l9 -4 l2 6"
-                fill="none"
-                stroke="#121110"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </g>
-          </g>
+          <BeeMark />
         </svg>
       </div>
     </div>

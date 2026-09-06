@@ -47,7 +47,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${syne.variable} ${instrument.variable} antialiased`}>
+      <body
+        className={`${syne.variable} ${instrument.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
