@@ -351,18 +351,9 @@ body {
 .comb-bee.is-flying {
   animation: bee-fly 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
-.bee-hit {
-  cursor: pointer;
-}
-/* A click should not leave a focus box around the bee — keyboard users still
-   get a ring via :focus-visible. */
+/* Hover target only — nothing to click, so no pointer cursor and no ring. */
 .bee-hit:focus {
   outline: none;
-}
-.bee-hit:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 6px;
-  border-radius: 8px;
 }
 
 /* ── Header hover treatments ───────────────────────────── */

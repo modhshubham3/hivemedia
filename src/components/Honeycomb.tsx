@@ -76,19 +76,12 @@ export default function Honeycomb() {
       </g>
 
       <g className={`comb-bee ${flying ? "is-flying" : ""}`}>
+        {/* Hover flourish only — no action behind it, so it stays out of the
+            tab order rather than announcing itself as a control. */}
         <g
           transform="translate(-29 -25) scale(0.52)"
           className="bee-hit"
-          onClick={launch}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              launch();
-            }
-          }}
-          role="button"
-          tabIndex={0}
-          aria-label="Make the bee fly"
+          onMouseEnter={launch}
         >
           <g
             fill="none"
