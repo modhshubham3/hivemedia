@@ -32,6 +32,11 @@ their own peer-dependency versions and would break `next build`.
 Yellow is only ever used *behind* black type, never as text on cream — the two
 are too close in lightness to read. All text pairs clear WCAG AA.
 
+`public/hero-illustration.svg` is an unDraw illustration (Katerina
+Limpitsouni, undraw.co) — free for commercial use, no attribution required —
+recoloured to the palette above. Its original greys and blues were remapped;
+the yellow was already set to the brand value at download.
+
 Logo assets live in `brand/`. `public/logo-bee.svg` is a **redraw** of the bee
 mark as vector, because the supplied files are JPEGs with a grey background
 baked in. Ask the designer for the original vector before using the logo in
