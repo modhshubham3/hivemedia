@@ -62,14 +62,9 @@ export default function Home() {
       {/* ── Header ─────────────────────────────────────────── */}
       {/* Padding respects the notch: on a phone the lockup was sitting hard
           against the top edge and clipping. */}
-      <header
-        className="relative z-10 mx-auto flex w-full max-w-[1160px] items-center justify-between py-5 lg:px-8"
-        style={{
-          paddingTop: "max(1.5rem, calc(env(safe-area-inset-top) + 0.75rem))",
-          paddingLeft: "max(6vw, calc(env(safe-area-inset-left) + 1rem))",
-          paddingRight: "max(6vw, calc(env(safe-area-inset-right) + 1rem))",
-        }}
-      >
+      {/* Padding must stay classes, not inline style: inline always beat
+          lg:px-8, so on wide screens the lockup sat off the hero's edge. */}
+      <header className="relative z-10 mx-auto flex w-full max-w-[1160px] items-center justify-between px-[max(6vw,calc(env(safe-area-inset-left)+1rem))] pb-5 pt-[max(1.5rem,calc(env(safe-area-inset-top)+0.75rem))] lg:px-8">
         <a
           href="#top"
           className="logo-lockup flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
@@ -137,7 +132,7 @@ export default function Home() {
           <Reveal>
             <p className="eyebrow">What we do</p>
             <h2 className="mt-4 max-w-[22ch] font-[family-name:var(--font-syne)] text-[clamp(1.5rem,3vw,2.1rem)] font-bold leading-tight tracking-[-0.015em]">
-              Seven ways we help a brand get noticed.
+              How we help a brand get noticed.
             </h2>
           </Reveal>
 

@@ -31,16 +31,20 @@ export default function HeroArt() {
         className="h-auto w-full"
       />
 
-      <svg
-        viewBox="-6 -8 118 118"
-        aria-hidden="true"
-        className="absolute left-[2%] top-[3%] w-[13%] min-w-[34px]"
+      {/* The flight lives on this wrapper, not inside the SVG: an SVG clips
+          at its viewBox, so animating within it trapped the bee in a box. */}
+      <div
+        className={`comb-bee absolute left-[6%] top-[12%] w-[13%] min-w-[34px] ${
+          flying ? "is-flying" : ""
+        }`}
       >
-        <g
-          className={`comb-bee ${flying ? "is-flying" : ""}`}
-          style={{ transformBox: "fill-box", transformOrigin: "center" }}
+        <svg
+          viewBox="-6 -8 118 118"
+          aria-hidden="true"
+          className="bee-hit h-auto w-full"
+          onMouseEnter={launch}
         >
-          <g className="bee-hit" onMouseEnter={launch}>
+          <g>
             <g
               fill="none"
               stroke="#121110"
@@ -79,8 +83,8 @@ export default function HeroArt() {
               />
             </g>
           </g>
-        </g>
-      </svg>
+        </svg>
+      </div>
     </div>
   );
 }
