@@ -59,22 +59,6 @@ export default function StoryButton() {
             style={{ animationDelay: "0.63s" }}
           >
             <span className="text-poster">buzz.</span>
-            <svg
-              viewBox="0 0 300 24"
-              aria-hidden="true"
-              className="absolute -bottom-2 left-0 w-full"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M4 15 C 60 5, 120 20, 180 10 S 268 6, 296 13"
-                fill="none"
-                stroke="var(--yellow-deep)"
-                strokeWidth="6"
-                strokeLinecap="round"
-                className="underline-draw"
-                style={{ animationDelay: "1s" }}
-              />
-            </svg>
           </span>
           </span>
         </h2>

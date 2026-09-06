@@ -15,25 +15,27 @@ const HEX = "M0,-30 L-25.98,-15 L-25.98,15 L0,30 L25.98,15 L25.98,-15 Z";
 type Cell = { x: number; y: number; fill: string; delay: number };
 
 // Axial honeycomb coordinates → pixel positions.
+// Mostly outline. Two pale cells and one accent are enough to read as a comb;
+// the fully-yellow version dominated the page.
 const CELLS: Cell[] = [
-  { x: 51.96, y: 0, fill: "solid", delay: 0.05 },
+  { x: 51.96, y: 0, fill: "accent", delay: 0.05 },
   { x: 25.98, y: -45, fill: "pale", delay: 0.1 },
   { x: -25.98, y: -45, fill: "line", delay: 0.15 },
-  { x: -51.96, y: 0, fill: "pale", delay: 0.2 },
-  { x: -25.98, y: 45, fill: "solid", delay: 0.25 },
+  { x: -51.96, y: 0, fill: "line", delay: 0.2 },
+  { x: -25.98, y: 45, fill: "pale", delay: 0.25 },
   { x: 25.98, y: 45, fill: "line", delay: 0.3 },
   { x: 77.94, y: -45, fill: "line", delay: 0.35 },
-  { x: 77.94, y: 45, fill: "pale", delay: 0.4 },
-  { x: -77.94, y: -45, fill: "pale", delay: 0.45 },
+  { x: 77.94, y: 45, fill: "line", delay: 0.4 },
+  { x: -77.94, y: -45, fill: "line", delay: 0.45 },
   { x: -77.94, y: 45, fill: "line", delay: 0.5 },
   { x: -51.96, y: -90, fill: "line", delay: 0.55 },
-  { x: 51.96, y: 90, fill: "solid", delay: 0.6 },
-  { x: 0, y: -90, fill: "pale", delay: 0.65 },
-  { x: 0, y: 90, fill: "line", delay: 0.7 },
+  { x: 51.96, y: 90, fill: "line", delay: 0.6 },
+  { x: 0, y: -90, fill: "line", delay: 0.65 },
+  { x: 0, y: 90, fill: "pale", delay: 0.7 },
 ];
 
 const FILLS: Record<string, { fill: string; cls: string }> = {
-  solid: { fill: "var(--yellow)", cls: "comb-cell comb-solid" },
+  accent: { fill: "var(--yellow)", cls: "comb-cell comb-solid" },
   pale: { fill: "var(--yellow-pale)", cls: "comb-cell comb-pale" },
   line: { fill: "transparent", cls: "comb-cell comb-line" },
 };
@@ -56,7 +58,7 @@ export default function Honeycomb() {
       role="img"
       aria-label="A honeycomb with a bee at its centre"
     >
-      <g stroke="var(--ink)" strokeWidth="3.5" strokeLinejoin="round">
+      <g stroke="var(--ink)" strokeWidth="2.4" strokeLinejoin="round" opacity="0.85">
         {CELLS.map((c) => {
           const f = FILLS[c.fill];
           return (

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import TextScrollMarquee from "@/components/lightswind/text-scroll-marquee";
 import ComingSoonBadge from "@/components/ComingSoonBadge";
 import HexField from "@/components/HexField";
 import Honeycomb from "@/components/Honeycomb";
@@ -7,10 +6,21 @@ import NotifyForm from "@/components/NotifyForm";
 import Reveal from "@/components/Reveal";
 import StoryButton from "@/components/StoryButton";
 
-const SERVICES =
-  "Content Creation  ⬡  Digital Marketing  ⬡  Influencer Marketing  ⬡  Graphic Design  ⬡  Social Media Management  ⬡  Content Distribution  ⬡";
+const SERVICES = [
+  "Content Creation",
+  "Digital Marketing",
+  "Web Development",
+  "Influencer Marketing",
+  "Graphic Design",
+  "Social Media Management",
+  "Content Distribution",
+];
 
-const PILLARS = ["Strategy-led", "Creative-first", "Growth-focused"];
+const PILLARS = [
+  { title: "Strategy-led", body: "Every post has a reason to exist." },
+  { title: "Creative-first", body: "Ideas before templates, always." },
+  { title: "Growth-focused", body: "Measured against real numbers." },
+];
 
 const CONTACTS = [
   {
@@ -49,15 +59,6 @@ export default function Home() {
     <div className="flex min-h-svh flex-col">
       <HexField />
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed left-[62%] top-[38%] z-0 h-[min(70vw,780px)] w-[min(70vw,780px)] -translate-x-1/2 -translate-y-1/2"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(255,206,0,.34), transparent 70%)",
-        }}
-      />
-
       {/* ── Header ─────────────────────────────────────────── */}
       <header className="relative z-10 mx-auto flex w-full max-w-[1160px] items-center justify-between px-[6vw] py-5 lg:px-8">
         <a
@@ -68,24 +69,23 @@ export default function Home() {
           <Image
             src="/logo-bee.svg"
             alt=""
-            width={34}
-            height={29}
+            width={32}
+            height={32}
             priority
-            className="logo-bee h-[29px] w-auto"
+            className="logo-bee h-8 w-8"
           />
           <span className="wipe-highlight font-[family-name:var(--font-syne)] text-[18px] font-bold tracking-[-0.01em]">
             Hivemedia<span className="text-[var(--yellow-deep)]">.</span>
           </span>
         </a>
         <div className="tagline hidden text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)] sm:block">
-          <span className="wipe-highlight">Digital Marketing · India</span>
+          <span className="wipe-highlight">Creative Agency · Ahmedabad</span>
         </div>
       </header>
 
       {/* ── Hero ───────────────────────────────────────────── */}
-      <main className="relative z-10 mx-auto flex w-full max-w-[1160px] flex-1 items-center px-[6vw] pb-16 pt-6 lg:px-8">
+      <main className="relative z-10 mx-auto flex w-full max-w-[1160px] flex-1 items-center px-[6vw] pb-14 pt-4 lg:px-8">
         <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          {/* Left column */}
           <div className="text-center lg:text-left">
             <Reveal>
               <ComingSoonBadge />
@@ -95,31 +95,13 @@ export default function Home() {
               <h1 className="mt-6 font-[family-name:var(--font-syne)] text-[clamp(2.7rem,6vw,4.6rem)] font-extrabold leading-[1.02] tracking-[-0.02em] text-balance">
                 We turn brands
                 <br />
-                into{" "}
-                <span className="relative inline-block">
-                  <span className="text-poster">buzz.</span>
-                  <svg
-                    viewBox="0 0 300 24"
-                    aria-hidden="true"
-                    className="absolute -bottom-2 left-0 w-full"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M4 15 C 60 5, 120 20, 180 10 S 268 6, 296 13"
-                      fill="none"
-                      stroke="var(--yellow-deep)"
-                      strokeWidth="6"
-                      strokeLinecap="round"
-                      className="underline-draw"
-                    />
-                  </svg>
-                </span>
+                into <span className="text-poster">buzz.</span>
               </h1>
             </Reveal>
 
             <Reveal delay={170}>
               <p className="mx-auto mt-6 max-w-[46ch] text-[clamp(1rem,1.25vw,1.075rem)] leading-relaxed text-[var(--ink-soft)] lg:mx-0">
-                A digital marketing studio built on one idea: good marketing
+                A creative digital agency built on one idea: good marketing
                 should feel less like noise and more like connection. Content,
                 campaigns and creative that make people stop scrolling.
                 <StoryButton />
@@ -127,19 +109,6 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={240}>
-              <ul className="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start">
-                {PILLARS.map((p) => (
-                  <li
-                    key={p}
-                    className="cursor-default rounded-full border border-[var(--hairline)] bg-white/70 px-3.5 py-1.5 text-[12.5px] font-medium text-[var(--ink-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--ink)] hover:bg-[var(--yellow)] hover:text-[var(--ink)] hover:shadow-hard"
-                  >
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-
-            <Reveal delay={310}>
               <NotifyForm />
               <p className="mt-3.5 text-[12.5px] uppercase tracking-[0.14em] text-[var(--ink-soft)]">
                 Launching 2026 · hivemedia.co.in
@@ -147,29 +116,63 @@ export default function Home() {
             </Reveal>
           </div>
 
-          {/* Right column — honeycomb */}
           <div className="flex justify-center lg:justify-end">
             <Honeycomb />
           </div>
         </div>
       </main>
 
-      {/* ── Services marquee ───────────────────────────────── */}
-      <div
-        aria-hidden="true"
-        className="relative z-10 border-y-[1.5px] border-[var(--ink)] bg-[var(--yellow)] py-4"
-      >
-        <TextScrollMarquee
-          baseVelocity={2}
-          direction="left"
-          className="font-[family-name:var(--font-syne)] !text-[15px] font-bold uppercase tracking-[0.16em] text-[var(--ink)]"
-        >
-          {SERVICES}
-        </TextScrollMarquee>
-      </div>
+      {/* ── Services ───────────────────────────────────────── */}
+      <section className="relative z-10 border-t border-[var(--hairline)] bg-[var(--cream-alt)]">
+        <div className="mx-auto max-w-[1160px] px-[6vw] py-14 lg:px-8">
+          <Reveal>
+            <p className="eyebrow">What we do</p>
+            <h2 className="mt-4 max-w-[22ch] font-[family-name:var(--font-syne)] text-[clamp(1.5rem,3vw,2.1rem)] font-bold leading-tight tracking-[-0.015em]">
+              Seven ways we help a brand get noticed.
+            </h2>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <ul className="mt-9 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+              {SERVICES.map((s) => (
+                <li
+                  key={s}
+                  className="flex items-center gap-3 border-b border-[var(--hairline)] pb-4 text-[15px] font-medium"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="hex h-2.5 w-2.5 shrink-0 bg-[var(--yellow)]"
+                  />
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── How we work ────────────────────────────────────── */}
+      <section className="relative z-10 border-t border-[var(--hairline)]">
+        <div className="mx-auto max-w-[1160px] px-[6vw] py-14 lg:px-8">
+          <Reveal>
+            <div className="grid gap-8 sm:grid-cols-3">
+              {PILLARS.map((p) => (
+                <div key={p.title}>
+                  <h3 className="font-[family-name:var(--font-syne)] text-[17px] font-bold">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1.5 text-[14.5px] leading-relaxed text-[var(--ink-soft)]">
+                    {p.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ── Footer ─────────────────────────────────────────── */}
-      <footer className="relative z-10 bg-[var(--ink)]">
+      <footer className="relative z-10 border-t border-[var(--hairline)] bg-[var(--cream-alt)]">
         <div className="mx-auto flex max-w-[1160px] flex-wrap items-center justify-center gap-x-8 gap-y-4 px-[6vw] py-7 text-center sm:justify-between sm:text-left lg:px-8">
           <nav aria-label="Contact" className="flex flex-wrap justify-center gap-7">
             {CONTACTS.map((c) => (
@@ -179,14 +182,14 @@ export default function Home() {
                 {...(c.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
-                className="group relative inline-flex items-center gap-2 py-1 text-[14px] text-[var(--cream-deep)] transition-colors hover:text-[var(--yellow)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--yellow)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--yellow)] after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="group relative inline-flex items-center gap-2 py-1 text-[14px] text-[var(--ink-soft)] transition-colors hover:text-[var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--yellow)] after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.8"
-                  className="h-[15px] w-[15px] shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-110"
+                  className="h-[15px] w-[15px] shrink-0"
                 >
                   {c.icon}
                 </svg>
@@ -194,7 +197,7 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <div className="w-full text-[12px] text-[var(--cream-deep)]/60 sm:w-auto sm:text-right">
+          <div className="w-full text-[12px] text-[var(--ink-soft)] sm:w-auto sm:text-right">
             © 2026 Hivemedia · Ahmedabad, India
           </div>
         </div>

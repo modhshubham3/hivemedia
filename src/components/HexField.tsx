@@ -30,15 +30,17 @@ export default function HexField() {
     resize();
     window.addEventListener("resize", resize);
 
-    const hexes = Array.from({ length: 14 }, () => ({
+    // Fewer and fainter than before — this is background texture, not a
+    // feature, and at the old opacity it fought the content.
+    const hexes = Array.from({ length: 8 }, () => ({
       px: Math.random(),
       py: Math.random(),
-      r: (14 + Math.random() * 46) * dpr,
-      v: (0.12 + Math.random() * 0.3) * dpr,
+      r: (18 + Math.random() * 44) * dpr,
+      v: (0.1 + Math.random() * 0.22) * dpr,
       sway: Math.random() * Math.PI * 2,
       rot: Math.random() * Math.PI,
-      vr: (Math.random() - 0.5) * 0.004,
-      o: 0.1 + Math.random() * 0.16,
+      vr: (Math.random() - 0.5) * 0.003,
+      o: 0.04 + Math.random() * 0.05,
     }));
 
     const paint = () => {
