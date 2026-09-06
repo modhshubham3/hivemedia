@@ -27,10 +27,10 @@ const CELLS: Cell[] = [
   { x: 0, y: 90, fill: "line", delay: 0.7 },
 ];
 
-const FILLS: Record<string, { fill: string; opacity: number }> = {
-  solid: { fill: "var(--yellow)", opacity: 1 },
-  pale: { fill: "var(--yellow-pale)", opacity: 1 },
-  line: { fill: "transparent", opacity: 1 },
+const FILLS: Record<string, { fill: string; cls: string }> = {
+  solid: { fill: "var(--yellow)", cls: "comb-cell comb-solid" },
+  pale: { fill: "var(--yellow-pale)", cls: "comb-cell comb-pale" },
+  line: { fill: "transparent", cls: "comb-cell comb-line" },
 };
 
 export default function Honeycomb() {
@@ -50,18 +50,18 @@ export default function Honeycomb() {
               d={HEX}
               transform={`translate(${c.x} ${c.y})`}
               fill={f.fill}
-              className="comb-cell"
-              style={{ animationDelay: `${c.delay}s` }}
+              className={f.cls}
+              style={{ animationDelay: `${c.delay}s, ${1 + c.delay * 1.4}s` }}
             />
           );
         })}
 
-        {/* Centre cell holds the bee */}
-        <path d={HEX} fill="var(--white)" className="comb-cell" />
+        {/* Centre cell holds the bee — kept white so the mark reads cleanly */}
+        <path d={HEX} fill="#FFFFFF" className="comb-cell" />
       </g>
 
       <g className="comb-bee">
-        <g transform="translate(-30 -25) scale(0.52)">
+        <g transform="translate(-29 -25) scale(0.52)">
           <g
             fill="none"
             stroke="#121110"

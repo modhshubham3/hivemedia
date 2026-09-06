@@ -17,6 +17,7 @@
   --yellow: #FFCE00;      /* sampled from the client's logo */
   --yellow-deep: #E0B400;
   --yellow-pale: #FFF0BC;
+  --white: #FFFFFF;
   --hairline: rgba(18, 17, 16, 0.12);
 
   /* Lightswind / Tailwind tokens */
@@ -163,18 +164,113 @@ body {
 .comb-cell {
   opacity: 0;
   animation: comb-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  transition: fill 0.25s ease;
+  cursor: pointer;
 }
 .comb-bee {
   animation: comb-float 5s ease-in-out infinite;
   animation-delay: 0.9s;
 }
 
+/* Once settled, the comb keeps breathing — cells warm up and cool down in a
+   staggered wave so the hive reads as alive rather than as a static graphic. */
+@keyframes comb-warm-pale {
+  0%,
+  100% {
+    fill: var(--yellow-pale);
+  }
+  50% {
+    fill: var(--yellow);
+  }
+}
+@keyframes comb-warm-line {
+  0%,
+  100% {
+    fill: transparent;
+  }
+  50% {
+    fill: var(--yellow-pale);
+  }
+}
+@keyframes comb-warm-solid {
+  0%,
+  100% {
+    fill: var(--yellow);
+  }
+  50% {
+    fill: #ffe270;
+  }
+}
+.comb-pale {
+  animation:
+    comb-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards,
+    comb-warm-pale 4.5s ease-in-out infinite 1.2s;
+}
+.comb-line {
+  animation:
+    comb-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards,
+    comb-warm-line 5.5s ease-in-out infinite 1.4s;
+  pointer-events: all;
+}
+.comb-solid {
+  animation:
+    comb-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards,
+    comb-warm-solid 4s ease-in-out infinite 1s;
+}
+.comb-cell:hover {
+  fill: var(--yellow);
+  animation-play-state: paused;
+}
+
+/* Hand-drawn underline that draws itself beneath the headline accent. */
+@keyframes draw-underline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.underline-draw {
+  stroke-dasharray: 340;
+  stroke-dashoffset: 340;
+  animation: draw-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.75s;
+}
+
+/* Pulsing ring on the Coming Soon dot. */
+@keyframes ring-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.dot-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--ink);
+  animation: ring-pulse 2s ease-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .comb-cell {
+  .comb-cell,
+  .comb-pale,
+  .comb-line,
+  .comb-solid {
     opacity: 1;
     animation: none;
   }
   .comb-bee {
+    animation: none;
+  }
+  .underline-draw {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+  .dot-ring::after {
     animation: none;
   }
 }

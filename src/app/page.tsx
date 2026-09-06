@@ -83,7 +83,7 @@ export default function Home() {
           <div className="text-center lg:text-left">
             <Reveal>
               <span className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--yellow)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] shadow-hard">
-                <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-[var(--ink)]" />
+                <span className="dot-ring relative h-[7px] w-[7px] rounded-full bg-[var(--ink)]" />
                 Coming Soon
               </span>
             </Reveal>
@@ -92,7 +92,25 @@ export default function Home() {
               <h1 className="mt-6 font-[family-name:var(--font-syne)] text-[clamp(2.7rem,6vw,4.6rem)] font-extrabold leading-[1.02] tracking-[-0.02em] text-balance">
                 We turn brands
                 <br />
-                into <span className="text-poster">buzz.</span>
+                into{" "}
+                <span className="relative inline-block">
+                  <span className="text-poster">buzz.</span>
+                  <svg
+                    viewBox="0 0 300 24"
+                    aria-hidden="true"
+                    className="absolute -bottom-2 left-0 w-full"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M4 15 C 60 5, 120 20, 180 10 S 268 6, 296 13"
+                      fill="none"
+                      stroke="var(--yellow-deep)"
+                      strokeWidth="6"
+                      strokeLinecap="round"
+                      className="underline-draw"
+                    />
+                  </svg>
+                </span>
               </h1>
             </Reveal>
 
@@ -109,7 +127,7 @@ export default function Home() {
                 {PILLARS.map((p) => (
                   <li
                     key={p}
-                    className="rounded-full border border-[var(--hairline)] bg-white/70 px-3.5 py-1.5 text-[12.5px] font-medium text-[var(--ink-soft)]"
+                    className="cursor-default rounded-full border border-[var(--hairline)] bg-white/70 px-3.5 py-1.5 text-[12.5px] font-medium text-[var(--ink-soft)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--ink)] hover:bg-[var(--yellow)] hover:text-[var(--ink)] hover:shadow-hard"
                   >
                     {p}
                   </li>
@@ -157,14 +175,14 @@ export default function Home() {
                 {...(c.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
-                className="inline-flex items-center gap-2 text-[14px] text-[var(--cream-deep)] transition-colors hover:text-[var(--yellow)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--yellow)]"
+                className="group relative inline-flex items-center gap-2 py-1 text-[14px] text-[var(--cream-deep)] transition-colors hover:text-[var(--yellow)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--yellow)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--yellow)] after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.8"
-                  className="h-[15px] w-[15px] shrink-0"
+                  className="h-[15px] w-[15px] shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-110"
                 >
                   {c.icon}
                 </svg>
