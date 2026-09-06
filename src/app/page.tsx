@@ -1,10 +1,10 @@
 import Image from "next/image";
 import ComingSoonBadge from "@/components/ComingSoonBadge";
 import HexField from "@/components/HexField";
-import Honeycomb from "@/components/Honeycomb";
 import NotifyForm from "@/components/NotifyForm";
 import Reveal from "@/components/Reveal";
 import StoryButton from "@/components/StoryButton";
+import WorkScene from "@/components/WorkScene";
 
 const SERVICES = [
   "Content Creation",
@@ -117,7 +117,7 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <Honeycomb />
+            <WorkScene />
           </div>
         </div>
       </main>
