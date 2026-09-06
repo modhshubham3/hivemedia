@@ -1,15 +1,58 @@
 # Hive Media — hivemedia.co.in
 
-Website for Hive Media, a media agency (brand films, social media, influencer campaigns).
+Website for **Hive Media**, a digital marketing agency.
 
-**Status:** Coming-soon page live. Full site in progress — will be rebuilt in Next.js + Tailwind as content arrives.
+**Status:** coming-soon page. Full site follows once client content arrives.
 
-## Current
+## Stack
 
-- `index.html` — self-contained coming-soon page (no build step, no dependencies)
-  - Design: warm black + honey gold, hive/hexagon identity
-  - Typographic wordmark (Syne), floating hexagon canvas animation, services marquee
+- **Next.js 16** (App Router, TypeScript, static export-friendly)
+- **Tailwind CSS 4** — theme tokens in `src/app/globals.css`
+- **Lightswind UI** — `magnetic-button`, `text-scroll-marquee`
+
+Add more Lightswind components as needed:
+
+```bash
+npx lightswind@latest add <component-name>
+```
+
+Only the components actually in use are kept in `src/components/lightswind/`. The
+library ships 212; the rest were removed because several fail type-check against
+their own peer-dependency versions and would break `next build`.
+
+## Brand
+
+| Token | Value | Use |
+|---|---|---|
+| Cream | `#FBF6E9` | page ground |
+| Light yellow | `#FFCE00` | accent bands, buttons — sampled from the logo |
+| Black | `#121110` | type, footer band |
+| White | `#FFFFFF` | input and card surfaces |
+
+Yellow is only ever used *behind* black type, never as text on cream — the two
+are too close in lightness to read. All text pairs clear WCAG AA.
+
+Logo assets live in `brand/`. `public/logo-bee.svg` is a **redraw** of the bee
+mark as vector, because the supplied files are JPEGs with a grey background
+baked in. Ask the designer for the original vector before using the logo in
+print.
+
+## Develop
+
+Node 20+ required (this machine keeps Node 14 as the global default for other
+projects, so run via the version folder directly):
+
+```bash
+npm run dev
+```
 
 ## Deploy
 
-Hosted on Cloudflare Pages — every push to `main` auto-deploys. No build command; output directory is the repo root.
+Cloudflare Pages, auto-deploying on every push to `main`.
+Build command `npm run build`, output directory `.next`.
+
+## Placeholders still to replace
+
+- Contact details in `src/app/page.tsx` (email, phone, Instagram) are dummy
+- Services list in the marquee needs client confirmation
+- No analytics, no form backend — the notify field opens a mail draft

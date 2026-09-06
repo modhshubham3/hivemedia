@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+@plugin 'lightswind/plugin';
+
+/* ==========================================================================
+   Hive Media — brand palette
+   Client colours: cream, light yellow, black, white.
+   Lightswind reads these as HSL triplets via hsl(var(--token)).
+   ========================================================================== */
+
+:root {
+  /* Raw brand colours (for hand-written CSS) */
+  --cream: #FBF6E9;
+  --cream-deep: #F3EAD3;
+  --ink: #121110;
+  --ink-soft: #6B6559;
+  --yellow: #FFCE00;      /* sampled from the client's logo */
+  --yellow-deep: #E0B400;
+
+  /* Lightswind / Tailwind tokens */
+  --background: 44 69% 95%;        /* cream page ground */
+  --foreground: 31 6% 7%;          /* near-black type */
+
+  --card: 0 0% 100%;               /* white surfaces */
+  --card-foreground: 31 6% 7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 31 6% 7%;
+
+  --primary: 48 100% 50%;          /* light yellow */
+  --primary-foreground: 31 6% 7%;  /* black ON yellow — never the reverse */
+
+  --secondary: 43 57% 89%;         /* deeper cream */
+  --secondary-foreground: 31 6% 7%;
+
+  --muted: 43 57% 89%;
+  --muted-foreground: 40 9% 38%;
+
+  --accent: 48 100% 50%;
+  --accent-foreground: 31 6% 7%;
+
+  --destructive: 0 72% 45%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 31 6% 7%;
+  --input: 31 6% 7%;
+  --ring: 31 6% 7%;
+
+  --radius: 999px;
+
+  --scrollbar-thumb: 48 100% 44%;
+  --scrollbar-track: 43 57% 89%;
+  --scrollbar-hover: 31 6% 7%;
+}
+
+/* Single committed light identity — a component that flips to .dark
+   keeps the same brand colours rather than inverting into an unbranded theme. */
+.dark {
+  --background: 44 69% 95%;
+  --foreground: 31 6% 7%;
+  --card: 0 0% 100%;
+  --card-foreground: 31 6% 7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 31 6% 7%;
+  --primary: 48 100% 50%;
+  --primary-foreground: 31 6% 7%;
+  --secondary: 43 57% 89%;
+  --secondary-foreground: 31 6% 7%;
+  --muted: 43 57% 89%;
+  --muted-foreground: 40 9% 38%;
+  --accent: 48 100% 50%;
+  --accent-foreground: 31 6% 7%;
+  --border: 31 6% 7%;
+  --input: 31 6% 7%;
+  --ring: 31 6% 7%;
+}
+
+@theme inline {
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+/* Yellow text on cream is unreadable — the headline gets a black outline
+   so the yellow reads as a poster fill rather than low-contrast type. */
+.text-poster {
+  color: var(--yellow);
+  -webkit-text-stroke: 2px var(--ink);
+  paint-order: stroke fill;
+}
+
+/* Flat offset shadow — the retro-agency detail carried over from the demo. */
+.shadow-hard {
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.shadow-hard-lg {
+  box-shadow: 4px 6px 0 var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
