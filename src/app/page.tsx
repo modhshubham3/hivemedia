@@ -1,9 +1,11 @@
 import Image from "next/image";
 import TextScrollMarquee from "@/components/lightswind/text-scroll-marquee";
+import ComingSoonBadge from "@/components/ComingSoonBadge";
 import HexField from "@/components/HexField";
 import Honeycomb from "@/components/Honeycomb";
 import NotifyForm from "@/components/NotifyForm";
 import Reveal from "@/components/Reveal";
+import StoryButton from "@/components/StoryButton";
 
 const SERVICES =
   "Content Creation  ⬡  Digital Marketing  ⬡  Influencer Marketing  ⬡  Graphic Design  ⬡  Social Media Management  ⬡  Content Distribution  ⬡";
@@ -58,21 +60,25 @@ export default function Home() {
 
       {/* ── Header ─────────────────────────────────────────── */}
       <header className="relative z-10 mx-auto flex w-full max-w-[1160px] items-center justify-between px-[6vw] py-5 lg:px-8">
-        <div className="flex items-center gap-2.5">
+        <a
+          href="#top"
+          className="logo-lockup flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
+          aria-label="Hivemedia home"
+        >
           <Image
             src="/logo-bee.svg"
             alt=""
             width={34}
             height={29}
             priority
-            className="h-[29px] w-auto"
+            className="logo-bee h-[29px] w-auto"
           />
-          <span className="font-[family-name:var(--font-syne)] text-[18px] font-bold tracking-[-0.01em]">
+          <span className="wipe-highlight font-[family-name:var(--font-syne)] text-[18px] font-bold tracking-[-0.01em]">
             Hivemedia<span className="text-[var(--yellow-deep)]">.</span>
           </span>
-        </div>
-        <div className="hidden text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)] sm:block">
-          Digital Marketing · India
+        </a>
+        <div className="tagline hidden text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)] sm:block">
+          <span className="wipe-highlight">Digital Marketing · India</span>
         </div>
       </header>
 
@@ -82,10 +88,7 @@ export default function Home() {
           {/* Left column */}
           <div className="text-center lg:text-left">
             <Reveal>
-              <span className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--yellow)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] shadow-hard">
-                <span className="dot-ring relative h-[7px] w-[7px] rounded-full bg-[var(--ink)]" />
-                Coming Soon
-              </span>
+              <ComingSoonBadge />
             </Reveal>
 
             <Reveal delay={90}>
@@ -120,6 +123,7 @@ export default function Home() {
                 should feel less like noise and more like connection. Content,
                 campaigns and creative that make people stop scrolling.
               </p>
+              <StoryButton />
             </Reveal>
 
             <Reveal delay={240}>

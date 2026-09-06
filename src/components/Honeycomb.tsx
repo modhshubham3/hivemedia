@@ -1,7 +1,12 @@
+"use client";
+
+import { useRef, useState } from "react";
+
 /**
  * Hero artwork: a honeycomb cluster with the bee at its centre.
  * The hexagon is the client's own logo shape, so the hero's main visual
  * carries the brand rather than decorating around it.
+ * Clicking the bee sends it on a loop around the comb.
  */
 
 // Pointy-top hexagon, R = 30, centred on the origin.
@@ -34,6 +39,16 @@ const FILLS: Record<string, { fill: string; cls: string }> = {
 };
 
 export default function Honeycomb() {
+  const [flying, setFlying] = useState(false);
+  const timer = useRef<number | undefined>(undefined);
+
+  const launch = () => {
+    if (flying) return;
+    setFlying(true);
+    window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => setFlying(false), 2800);
+  };
+
   return (
     <svg
       viewBox="-150 -140 300 280"
@@ -60,8 +75,21 @@ export default function Honeycomb() {
         <path d={HEX} fill="#FFFFFF" className="comb-cell" />
       </g>
 
-      <g className="comb-bee">
-        <g transform="translate(-29 -25) scale(0.52)">
+      <g className={`comb-bee ${flying ? "is-flying" : ""}`}>
+        <g
+          transform="translate(-29 -25) scale(0.52)"
+          className="bee-hit"
+          onClick={launch}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              launch();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Make the bee fly"
+        >
           <g
             fill="none"
             stroke="#121110"

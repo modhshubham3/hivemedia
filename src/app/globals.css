@@ -255,6 +255,192 @@ body {
   animation: ring-pulse 2s ease-out infinite;
 }
 
+/* ── Modal ─────────────────────────────────────────────── */
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.modal-backdrop {
+  animation: modal-fade 0.25s ease forwards;
+}
+.modal-panel {
+  animation: modal-pop 0.42s cubic-bezier(0.2, 0.9, 0.25, 1.05) forwards;
+}
+
+/* Letters drop in one at a time, like bees landing on the comb. */
+@keyframes letter-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) rotate(-14deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.letter-drop {
+  display: inline-block;
+  opacity: 0;
+  animation: letter-drop 0.5s cubic-bezier(0.2, 0.9, 0.25, 1.15) forwards;
+}
+
+/* Lines of the story rise as they are spoken. */
+@keyframes line-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.line-rise {
+  opacity: 0;
+  animation: line-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes hex-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.hex-spin {
+  animation: hex-spin 22s linear infinite;
+  transform-origin: center;
+}
+
+/* ── Bee takes off when clicked ─────────────────────────── */
+@keyframes bee-fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  16% {
+    transform: translate(34px, -52px) rotate(14deg);
+  }
+  34% {
+    transform: translate(92px, -14px) rotate(-8deg);
+  }
+  52% {
+    transform: translate(52px, 58px) rotate(12deg);
+  }
+  70% {
+    transform: translate(-58px, 34px) rotate(-14deg);
+  }
+  86% {
+    transform: translate(-26px, -30px) rotate(8deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+.comb-bee.is-flying {
+  animation: bee-fly 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+.bee-hit {
+  cursor: pointer;
+}
+
+/* ── Header hover treatments ───────────────────────────── */
+@keyframes bee-buzz {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-9deg) translateY(-2px);
+  }
+  75% {
+    transform: rotate(9deg) translateY(-2px);
+  }
+}
+.logo-lockup:hover .logo-bee,
+.logo-lockup:focus-visible .logo-bee {
+  animation: bee-buzz 0.5s ease-in-out 2;
+}
+/* Yellow highlight wipes in behind the wordmark. */
+.wipe-highlight {
+  position: relative;
+  z-index: 0;
+}
+.wipe-highlight::before {
+  content: "";
+  position: absolute;
+  inset: -3px -6px;
+  z-index: -1;
+  border-radius: 4px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.34s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+.logo-lockup:hover .wipe-highlight::before,
+.logo-lockup:focus-visible .wipe-highlight::before,
+.tagline:hover .wipe-highlight::before,
+.tagline:focus-visible .wipe-highlight::before {
+  transform: scaleX(1);
+}
+.tagline {
+  transition: color 0.3s ease;
+}
+.tagline:hover {
+  color: var(--ink);
+}
+
+/* ── Play button ───────────────────────────────────────── */
+@keyframes play-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+.play-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid var(--ink);
+  animation: play-ring 2.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-backdrop,
+  .modal-panel,
+  .letter-drop,
+  .line-rise {
+    animation-duration: 0.01ms !important;
+    opacity: 1;
+    transform: none;
+  }
+  .hex-spin,
+  .comb-bee.is-flying,
+  .play-btn::after {
+    animation: none;
+  }
+  .logo-lockup:hover .logo-bee {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .comb-cell,
   .comb-pale,
