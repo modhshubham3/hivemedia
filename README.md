@@ -48,8 +48,27 @@ npm run dev
 
 ## Deploy
 
-Cloudflare Pages, auto-deploying on every push to `main`.
-Build command `npm run build`, output directory `.next`.
+Cloudflare, auto-deploying on every push to `main`.
+
+Every route is prerendered, so `next.config.ts` sets `output: "export"` and
+`next build` writes plain files to `./out`. `wrangler.toml` points Cloudflare's
+static-asset serving at that directory — no Worker script and no Next.js
+adapter involved.
+
+Dashboard settings that matter:
+
+| Setting | Value |
+|---|---|
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+
+Note that `npm run start` does **not** work in export mode. To preview the
+built site locally:
+
+```bash
+npx serve out
+```
 
 ## Placeholders still to replace
 

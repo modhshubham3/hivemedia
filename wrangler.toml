@@ -1,0 +1,10 @@
+# Cloudflare Workers static-assets deploy.
+# There is no Worker script — `next build` exports plain files to ./out and
+# Cloudflare serves them directly.
+
+name = "hivemedia"
+compatibility_date = "2025-06-01"
+
+[assets]
+directory = "./out"
+not_found_handling = "404-page"
