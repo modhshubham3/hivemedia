@@ -6,14 +6,37 @@ import Reveal from "@/components/Reveal";
 import StoryButton from "@/components/StoryButton";
 import HeroArt from "@/components/HeroArt";
 
+// Descriptions are the client's own, lifted from their demo. Web Development
+// is new, so its line is a draft for them to approve.
 const SERVICES = [
-  "Content Creation",
-  "Digital Marketing",
-  "Web Development",
-  "Influencer Marketing",
-  "Graphic Design",
-  "Social Media Management",
-  "Content Distribution",
+  {
+    name: "Content Creation",
+    body: "Scroll-stopping content built around your brand voice — reels, posts and stories that don't feel like ads.",
+  },
+  {
+    name: "Digital Marketing",
+    body: "Campaigns across search and social, planned with a clear goal and measured against real numbers.",
+  },
+  {
+    name: "Web Development",
+    body: "Sites and landing pages that load fast, look like the rest of your brand, and are built to be found.",
+  },
+  {
+    name: "Influencer Marketing",
+    body: "The right voices for your brand — creator partnerships that feel genuine, not rented.",
+  },
+  {
+    name: "Graphic Design",
+    body: "Logos, brand kits and visuals that keep every touchpoint looking like it belongs to you.",
+  },
+  {
+    name: "Social Media Management",
+    body: "Calendars, captions and community — we keep your channels active so you don't have to.",
+  },
+  {
+    name: "Content Distribution",
+    body: "The right content on the right platform at the right time, so nothing goes unseen.",
+  },
 ];
 
 const PILLARS = [
@@ -128,26 +151,33 @@ export default function Home() {
 
       {/* ── Services ───────────────────────────────────────── */}
       <section className="relative z-10 border-t border-[var(--hairline)] bg-[var(--cream-alt)]">
-        <div className="mx-auto max-w-[1160px] px-[6vw] py-14 lg:px-8">
+        <div className="mx-auto max-w-[1160px] px-[6vw] py-20 lg:px-8 lg:py-24">
           <Reveal>
             <p className="eyebrow">What we do</p>
-            <h2 className="mt-4 max-w-[22ch] font-[family-name:var(--font-syne)] text-[clamp(1.5rem,3vw,2.1rem)] font-bold leading-tight tracking-[-0.015em]">
+            <h2 className="mt-5 max-w-[20ch] font-[family-name:var(--font-syne)] text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.02em] text-balance">
               How we help a brand get noticed.
             </h2>
           </Reveal>
 
           <Reveal delay={120}>
-            <ul className="mt-9 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-14 grid gap-x-16 gap-y-11 sm:grid-cols-2">
               {SERVICES.map((s) => (
                 <li
-                  key={s}
-                  className="flex items-center gap-3 border-b border-[var(--hairline)] pb-4 text-[15px] font-medium"
+                  key={s.name}
+                  className="border-t border-[var(--hairline)] pt-6"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="hex h-2.5 w-2.5 shrink-0 bg-[var(--yellow)]"
-                  />
-                  {s}
+                  <div className="flex items-baseline gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="hex h-2.5 w-2.5 shrink-0 translate-y-[-2px] bg-[var(--yellow)]"
+                    />
+                    <h3 className="font-[family-name:var(--font-syne)] text-[19px] font-bold tracking-[-0.01em]">
+                      {s.name}
+                    </h3>
+                  </div>
+                  <p className="mt-2.5 max-w-[42ch] pl-[22px] text-[15px] leading-relaxed text-[var(--ink-soft)]">
+                    {s.body}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -157,15 +187,15 @@ export default function Home() {
 
       {/* ── How we work ────────────────────────────────────── */}
       <section className="relative z-10 border-t border-[var(--hairline)]">
-        <div className="mx-auto max-w-[1160px] px-[6vw] py-14 lg:px-8">
+        <div className="mx-auto max-w-[1160px] px-[6vw] py-20 lg:px-8">
           <Reveal>
-            <div className="grid gap-8 sm:grid-cols-3">
+            <div className="grid gap-12 sm:grid-cols-3 sm:gap-10">
               {PILLARS.map((p) => (
                 <div key={p.title}>
-                  <h3 className="font-[family-name:var(--font-syne)] text-[17px] font-bold">
+                  <h3 className="font-[family-name:var(--font-syne)] text-[clamp(1.15rem,2vw,1.35rem)] font-bold tracking-[-0.01em]">
                     {p.title}
                   </h3>
-                  <p className="mt-1.5 text-[14.5px] leading-relaxed text-[var(--ink-soft)]">
+                  <p className="mt-2.5 max-w-[32ch] text-[15px] leading-relaxed text-[var(--ink-soft)]">
                     {p.body}
                   </p>
                 </div>
