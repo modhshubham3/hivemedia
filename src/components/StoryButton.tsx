@@ -22,19 +22,13 @@ export default function StoryButton() {
         type="button"
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
-        className="group mt-5 inline-flex items-center gap-3 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
+        aria-label="Play our story"
+        title="Play our story"
+        className="play-btn relative ml-2 inline-grid h-7 w-7 translate-y-[5px] place-items-center rounded-full bg-[var(--ink)] align-baseline transition-transform duration-200 hover:scale-115 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--ink)]"
       >
-        <span className="play-btn relative grid h-11 w-11 shrink-0 place-items-center rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--ink)] transition-transform duration-200 group-hover:scale-110">
-          <svg viewBox="0 0 24 24" className="ml-[3px] h-4 w-4" aria-hidden="true">
-            <path d="M8 5.5 L19 12 L8 18.5 Z" fill="var(--yellow)" />
-          </svg>
-        </span>
-        <span className="text-[13.5px] font-semibold text-[var(--ink)]">
-          Play our story
-          <span className="block text-[12px] font-normal text-[var(--ink-soft)]">
-            30 seconds, no sound needed
-          </span>
-        </span>
+        <svg viewBox="0 0 24 24" className="ml-[2px] h-3 w-3" aria-hidden="true">
+          <path d="M8 5.5 L19 12 L8 18.5 Z" fill="var(--yellow)" />
+        </svg>
       </button>
 
       <Modal

@@ -122,8 +122,8 @@ export default function Home() {
                 A digital marketing studio built on one idea: good marketing
                 should feel less like noise and more like connection. Content,
                 campaigns and creative that make people stop scrolling.
+                <StoryButton />
               </p>
-              <StoryButton />
             </Reveal>
 
             <Reveal delay={240}>

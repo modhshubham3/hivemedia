@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 
 /**
  * Accessible dialog: closes on Escape and on backdrop click, locks the page
@@ -21,6 +22,9 @@ export default function Modal({
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const restoreTo = useRef<HTMLElement | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!open) return;
@@ -46,9 +50,11 @@ export default function Modal({
     };
   }, [open, onClose]);
 
-  if (!open) return null;
+  if (!open || !mounted) return null;
 
-  return (
+  // Portalled to the body so a trigger can sit inside a paragraph without
+  // nesting a dialog inside phrasing content.
+  return createPortal(
     <div
       className="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-[rgba(18,17,16,0.55)] p-5 backdrop-blur-sm"
       onMouseDown={(e) => {
@@ -83,6 +89,7 @@ export default function Modal({
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

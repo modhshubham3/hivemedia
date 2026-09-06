@@ -354,23 +354,47 @@ body {
 .bee-hit {
   cursor: pointer;
 }
+/* A click should not leave a focus box around the bee — keyboard users still
+   get a ring via :focus-visible. */
+.bee-hit:focus {
+  outline: none;
+}
+.bee-hit:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
 
 /* ── Header hover treatments ───────────────────────────── */
-@keyframes bee-buzz {
-  0%,
+/* The header bee takes a short flight on hover — a contained loop, so the
+   header layout never shifts. */
+@keyframes bee-flit {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  18% {
+    transform: translate(7px, -9px) rotate(14deg);
+  }
+  38% {
+    transform: translate(17px, -3px) rotate(-9deg);
+  }
+  58% {
+    transform: translate(9px, 7px) rotate(11deg);
+  }
+  78% {
+    transform: translate(-6px, -4px) rotate(-8deg);
+  }
   100% {
-    transform: rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
   }
-  25% {
-    transform: rotate(-9deg) translateY(-2px);
-  }
-  75% {
-    transform: rotate(9deg) translateY(-2px);
-  }
+}
+.logo-bee {
+  position: relative;
+  z-index: 1;
 }
 .logo-lockup:hover .logo-bee,
 .logo-lockup:focus-visible .logo-bee {
-  animation: bee-buzz 0.5s ease-in-out 2;
+  animation: bee-flit 1.7s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 /* Yellow highlight wipes in behind the wordmark. */
 .wipe-highlight {

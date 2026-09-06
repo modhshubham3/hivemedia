@@ -27,10 +27,27 @@ export default function ComingSoonBadge() {
         type="button"
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
-        className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--yellow)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] shadow-hard transition-all duration-200 hover:-translate-y-0.5 hover:shadow-hard-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
+        title="Open the launch note"
+        className="group inline-flex cursor-pointer items-center gap-2.5 rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--yellow)] py-2 pl-4 pr-2 text-[11px] font-bold uppercase tracking-[0.2em] shadow-hard transition-all duration-200 hover:-translate-y-0.5 hover:shadow-hard-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
       >
         <span className="dot-ring relative h-[7px] w-[7px] rounded-full bg-[var(--ink)]" />
         Coming Soon
+        {/* An arrow in its own well: without it the pill reads as a label,
+            not a control. */}
+        <span className="grid h-6 w-6 place-items-center rounded-full bg-[var(--ink)] transition-transform duration-200 group-hover:rotate-45">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-3 w-3"
+            fill="none"
+            stroke="var(--yellow)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17 L17 7 M9 7 h8 v8" />
+          </svg>
+        </span>
       </button>
 
       <Modal
