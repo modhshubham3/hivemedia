@@ -2,13 +2,16 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { BeeMark, BEE_VIEWBOX } from "@/components/Bee";
+import { DISC_CROP } from "@/components/BrandLockup";
 
 /**
- * Hero artwork. The scene itself is an unDraw illustration (Katerina
- * Limpitsouni, undraw.co — free for commercial use, no attribution
- * required), recoloured to the brand palette. The bee is ours, laid over
- * it so the brand mark still appears in the hero; it flies on hover.
+ * Hero artwork. The scene is an unDraw illustration (Katerina Limpitsouni,
+ * undraw.co — free for commercial use, no attribution required), recoloured
+ * to the brand palette.
+ *
+ * The bee laid over it is a crop of the client's own logo disc rather than
+ * a drawn copy, so the mark on the page is identical to the mark in their
+ * file. It flies on hover.
  */
 export default function HeroArt() {
   const [flying, setFlying] = useState(false);
@@ -32,21 +35,19 @@ export default function HeroArt() {
         className="h-auto w-full"
       />
 
-      {/* The flight lives on this wrapper, not inside the SVG: an SVG clips
-          at its viewBox, so animating within it trapped the bee in a box. */}
+      {/* The flight lives on the wrapper, not inside an SVG: an SVG clips at
+          its viewBox, which trapped the bee in a box. */}
       <div
-        className={`comb-bee absolute left-[6%] top-[12%] w-[13%] min-w-[34px] ${
+        className={`comb-bee absolute left-[5%] top-[10%] aspect-square w-[15%] min-w-[38px] ${
           flying ? "is-flying" : ""
         }`}
       >
-        <svg
-          viewBox={BEE_VIEWBOX}
-          aria-hidden="true"
-          className="bee-hit h-auto w-full"
+        <div
+          className="bee-hit h-full w-full"
+          style={DISC_CROP}
           onMouseEnter={launch}
-        >
-          <BeeMark />
-        </svg>
+          aria-hidden="true"
+        />
       </div>
     </div>
   );
