@@ -314,6 +314,91 @@ body {
   transform-origin: center;
 }
 
+/* ── Hero visual: layered drift ─────────────────────────
+   Each plane moves at its own rate and amplitude, which reads as depth
+   without any of the planes calling attention to itself. */
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-11px);
+  }
+}
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+@keyframes drift-c {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.drift-a {
+  animation: drift-a 9s ease-in-out infinite;
+}
+.drift-b {
+  animation: drift-b 11s ease-in-out infinite;
+}
+.drift-c {
+  animation: drift-c 7.5s ease-in-out infinite;
+}
+
+@keyframes trace-in {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.trace {
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: trace-in 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.4s;
+}
+
+@keyframes node-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.node {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-in 0.5s cubic-bezier(0.2, 0.9, 0.25, 1.1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift-a,
+  .drift-b,
+  .drift-c {
+    animation: none;
+  }
+  .trace {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+  .node {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
 /* ── Bee takes off when clicked ─────────────────────────── */
 @keyframes bee-fly {
   0% {
