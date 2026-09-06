@@ -60,7 +60,16 @@ export default function Home() {
       <HexField />
 
       {/* ── Header ─────────────────────────────────────────── */}
-      <header className="relative z-10 mx-auto flex w-full max-w-[1160px] items-center justify-between px-[6vw] py-5 lg:px-8">
+      {/* Padding respects the notch: on a phone the lockup was sitting hard
+          against the top edge and clipping. */}
+      <header
+        className="relative z-10 mx-auto flex w-full max-w-[1160px] items-center justify-between py-5 lg:px-8"
+        style={{
+          paddingTop: "max(1.5rem, calc(env(safe-area-inset-top) + 0.75rem))",
+          paddingLeft: "max(6vw, calc(env(safe-area-inset-left) + 1rem))",
+          paddingRight: "max(6vw, calc(env(safe-area-inset-right) + 1rem))",
+        }}
+      >
         <a
           href="#top"
           className="logo-lockup flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
