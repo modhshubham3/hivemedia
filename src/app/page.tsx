@@ -4,7 +4,7 @@ import HexField from "@/components/HexField";
 import NotifyForm from "@/components/NotifyForm";
 import Reveal from "@/components/Reveal";
 import StoryButton from "@/components/StoryButton";
-import BrandVisual from "@/components/BrandVisual";
+import WorkScene from "@/components/WorkScene";
 
 const SERVICES = [
   "Content Creation",
@@ -126,7 +126,7 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <BrandVisual />
+            <WorkScene />
           </div>
         </div>
       </main>
