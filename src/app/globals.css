@@ -10,11 +10,14 @@
 :root {
   /* Raw brand colours (for hand-written CSS) */
   --cream: #FBF6E9;
+  --cream-alt: #FFF7E4;
   --cream-deep: #F3EAD3;
   --ink: #121110;
   --ink-soft: #6B6559;
   --yellow: #FFCE00;      /* sampled from the client's logo */
   --yellow-deep: #E0B400;
+  --yellow-pale: #FFF0BC;
+  --hairline: rgba(18, 17, 16, 0.12);
 
   /* Lightswind / Tailwind tokens */
   --background: 44 69% 95%;        /* cream page ground */
@@ -104,6 +107,95 @@ body {
 }
 .shadow-hard-lg {
   box-shadow: 4px 6px 0 var(--ink);
+}
+
+/* Card that lifts into its own shadow on hover. */
+.card-lift {
+  transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.card-lift:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+/* Hexagon — the brand's core shape, reused for icons and accents. */
+.hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Section eyebrow: small yellow-underlined label. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: var(--yellow-deep);
+}
+
+/* Honeycomb hero: cells settle in, then the bee drifts. */
+@keyframes comb-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes comb-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.comb-cell {
+  opacity: 0;
+  animation: comb-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.comb-bee {
+  animation: comb-float 5s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .comb-cell {
+    opacity: 1;
+    animation: none;
+  }
+  .comb-bee {
+    animation: none;
+  }
+}
+
+/* Scroll reveal — opacity/translate only, so it degrades to visible. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

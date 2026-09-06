@@ -1,10 +1,46 @@
 import Image from "next/image";
 import TextScrollMarquee from "@/components/lightswind/text-scroll-marquee";
 import HexField from "@/components/HexField";
+import Honeycomb from "@/components/Honeycomb";
 import NotifyForm from "@/components/NotifyForm";
+import Reveal from "@/components/Reveal";
 
 const SERVICES =
-  "Social Media  ⬡  Performance Ads  ⬡  Content Production  ⬡  Influencer Marketing  ⬡  Brand Films  ⬡  SEO  ⬡  Design & Identity  ⬡";
+  "Content Creation  ⬡  Digital Marketing  ⬡  Influencer Marketing  ⬡  Graphic Design  ⬡  Social Media Management  ⬡  Content Distribution  ⬡";
+
+const PILLARS = ["Strategy-led", "Creative-first", "Growth-focused"];
+
+const CONTACTS = [
+  {
+    href: "mailto:hello@hivemedia.co.in",
+    label: "hello@hivemedia.co.in",
+    icon: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </>
+    ),
+  },
+  {
+    href: "tel:+917600955697",
+    label: "+91 76009 55697",
+    icon: (
+      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z" />
+    ),
+  },
+  {
+    href: "https://instagram.com/Hivemedia.co.in",
+    label: "@Hivemedia.co.in",
+    external: true,
+    icon: (
+      <>
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4.5" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </>
+    ),
+  },
+];
 
 export default function Home() {
   return (
@@ -13,27 +49,26 @@ export default function Home() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed left-1/2 top-[40%] z-0 h-[min(85vw,1000px)] w-[min(85vw,1000px)] -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none fixed left-[62%] top-[38%] z-0 h-[min(70vw,780px)] w-[min(70vw,780px)] -translate-x-1/2 -translate-y-1/2"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(255,206,0,.38), transparent 70%)",
+            "radial-gradient(closest-side, rgba(255,206,0,.34), transparent 70%)",
         }}
       />
 
       {/* ── Header ─────────────────────────────────────────── */}
-      <header className="relative z-10 flex items-center justify-between px-5 py-[22px] sm:px-8 lg:px-14">
+      <header className="relative z-10 mx-auto flex w-full max-w-[1160px] items-center justify-between px-[6vw] py-5 lg:px-8">
         <div className="flex items-center gap-2.5">
           <Image
             src="/logo-bee.svg"
             alt=""
-            width={40}
-            height={34}
+            width={34}
+            height={29}
             priority
-            className="h-[34px] w-auto"
+            className="h-[29px] w-auto"
           />
-          <span className="font-[family-name:var(--font-syne)] text-[19px] font-bold tracking-[-0.01em]">
-            Hivemedia
-            <span className="text-[var(--yellow)]">.</span>
+          <span className="font-[family-name:var(--font-syne)] text-[18px] font-bold tracking-[-0.01em]">
+            Hivemedia<span className="text-[var(--yellow-deep)]">.</span>
           </span>
         </div>
         <div className="hidden text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)] sm:block">
@@ -42,31 +77,58 @@ export default function Home() {
       </header>
 
       {/* ── Hero ───────────────────────────────────────────── */}
-      <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pb-16 pt-10 text-center sm:px-8 lg:px-14">
-        <div className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--yellow)] px-[18px] py-2.5 text-[12px] font-semibold uppercase tracking-[0.28em] shadow-hard">
-          <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-[var(--ink)]" />
-          Coming Soon
-        </div>
+      <main className="relative z-10 mx-auto flex w-full max-w-[1160px] flex-1 items-center px-[6vw] pb-16 pt-6 lg:px-8">
+        <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          {/* Left column */}
+          <div className="text-center lg:text-left">
+            <Reveal>
+              <span className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--yellow)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] shadow-hard">
+                <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-[var(--ink)]" />
+                Coming Soon
+              </span>
+            </Reveal>
 
-        <h1 className="mt-8 font-[family-name:var(--font-syne)] text-[clamp(3.4rem,13vw,9.5rem)] font-extrabold uppercase leading-[0.94] tracking-[-0.015em] text-balance">
-          Hive
-          <br />
-          <span className="text-poster">Media</span>
-        </h1>
+            <Reveal delay={90}>
+              <h1 className="mt-6 font-[family-name:var(--font-syne)] text-[clamp(2.7rem,6vw,4.6rem)] font-extrabold leading-[1.02] tracking-[-0.02em] text-balance">
+                We turn brands
+                <br />
+                into <span className="text-poster">buzz.</span>
+              </h1>
+            </Reveal>
 
-        <p className="mt-7 max-w-[56ch] text-[clamp(1rem,1.4vw,1.15rem)] leading-relaxed text-[var(--ink-soft)]">
-          Something&rsquo;s buzzing. A digital marketing agency for brands that
-          want to be seen &mdash;{" "}
-          <strong className="font-semibold text-[var(--ink)]">
-            social media, performance ads, content and influencer campaigns
-          </strong>{" "}
-          that actually move the needle.
-        </p>
+            <Reveal delay={170}>
+              <p className="mx-auto mt-6 max-w-[46ch] text-[clamp(1rem,1.25vw,1.075rem)] leading-relaxed text-[var(--ink-soft)] lg:mx-0">
+                A digital marketing studio built on one idea: good marketing
+                should feel less like noise and more like connection. Content,
+                campaigns and creative that make people stop scrolling.
+              </p>
+            </Reveal>
 
-        <NotifyForm />
+            <Reveal delay={240}>
+              <ul className="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start">
+                {PILLARS.map((p) => (
+                  <li
+                    key={p}
+                    className="rounded-full border border-[var(--hairline)] bg-white/70 px-3.5 py-1.5 text-[12.5px] font-medium text-[var(--ink-soft)]"
+                  >
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
 
-        <div className="mt-4 text-[13px] uppercase tracking-[0.14em] text-[var(--ink-soft)]">
-          Launching 2026 · hivemedia.co.in
+            <Reveal delay={310}>
+              <NotifyForm />
+              <p className="mt-3.5 text-[12.5px] uppercase tracking-[0.14em] text-[var(--ink-soft)]">
+                Launching 2026 · hivemedia.co.in
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Right column — honeycomb */}
+          <div className="flex justify-center lg:justify-end">
+            <Honeycomb />
+          </div>
         </div>
       </main>
 
@@ -85,46 +147,34 @@ export default function Home() {
       </div>
 
       {/* ── Footer ─────────────────────────────────────────── */}
-      <footer className="relative z-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-4 bg-[var(--ink)] px-5 py-7 text-center sm:px-8 sm:justify-between sm:text-left lg:px-14">
-        <nav aria-label="Contact" className="flex flex-wrap justify-center gap-7">
-          <a
-            href="mailto:hello@hivemedia.co.in"
-            className="inline-flex items-center gap-2 text-[14px] text-[var(--cream-deep)] transition-colors hover:text-[var(--yellow)]"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-[15px] w-[15px] shrink-0">
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="m3 7 9 6 9-6" />
-            </svg>
-            hello@hivemedia.co.in
-          </a>
-          <a
-            href="tel:+919000000000"
-            className="inline-flex items-center gap-2 text-[14px] text-[var(--cream-deep)] transition-colors hover:text-[var(--yellow)]"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-[15px] w-[15px] shrink-0">
-              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z" />
-            </svg>
-            +91 90000 00000
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[14px] text-[var(--cream-deep)] transition-colors hover:text-[var(--yellow)]"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-[15px] w-[15px] shrink-0">
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="4.5" />
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-            </svg>
-            @hive.media
-          </a>
-        </nav>
-        <div className="w-full text-[12px] text-[var(--cream-deep)]/65 sm:w-auto sm:text-right">
-          © 2026 Hive Media{" "}
-          <span className="text-[var(--yellow)]/90">
-            · demo preview — placeholder contacts
-          </span>
+      <footer className="relative z-10 bg-[var(--ink)]">
+        <div className="mx-auto flex max-w-[1160px] flex-wrap items-center justify-center gap-x-8 gap-y-4 px-[6vw] py-7 text-center sm:justify-between sm:text-left lg:px-8">
+          <nav aria-label="Contact" className="flex flex-wrap justify-center gap-7">
+            {CONTACTS.map((c) => (
+              <a
+                key={c.href}
+                href={c.href}
+                {...(c.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="inline-flex items-center gap-2 text-[14px] text-[var(--cream-deep)] transition-colors hover:text-[var(--yellow)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--yellow)]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  className="h-[15px] w-[15px] shrink-0"
+                >
+                  {c.icon}
+                </svg>
+                {c.label}
+              </a>
+            ))}
+          </nav>
+          <div className="w-full text-[12px] text-[var(--cream-deep)]/60 sm:w-auto sm:text-right">
+            © 2026 Hivemedia · Ahmedabad, India
+          </div>
         </div>
       </footer>
     </div>

@@ -19,7 +19,7 @@ export default function NotifyForm() {
   };
 
   return (
-    <div className="mt-9 flex flex-wrap items-center justify-center gap-2.5">
+    <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
       <input
         type="email"
         value={email}
