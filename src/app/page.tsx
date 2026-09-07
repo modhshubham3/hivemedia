@@ -109,7 +109,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={90}>
-              <h1 className="mt-6 font-[family-name:var(--font-syne)] text-[clamp(2.7rem,6vw,4.6rem)] font-extrabold leading-[1.02] tracking-[-0.02em] text-balance">
+              <h1 className="mt-6 font-[family-name:var(--font-serif)] text-[clamp(2.7rem,6vw,4.6rem)] leading-[1.02] tracking-[-0.03em] text-balance">
                 We turn brands
                 <br />
                 into <span className="text-poster">buzz.</span>
@@ -144,7 +144,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1160px] px-[6vw] py-20 lg:px-8 lg:py-24">
           <Reveal>
             <p className="eyebrow">What we do</p>
-            <h2 className="mt-5 max-w-[20ch] font-[family-name:var(--font-syne)] text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.02em] text-balance">
+            <h2 className="mt-5 max-w-[20ch] font-[family-name:var(--font-serif)] text-[clamp(1.9rem,4vw,3rem)] leading-[1.08] tracking-[-0.03em] text-balance">
               How we help a brand get noticed.
             </h2>
           </Reveal>
@@ -159,9 +159,9 @@ export default function Home() {
                   <div className="flex items-baseline gap-3">
                     <span
                       aria-hidden="true"
-                      className="hex h-2.5 w-2.5 shrink-0 translate-y-[-2px] bg-[var(--yellow)]"
+                      className="hex h-2 w-2 shrink-0 translate-y-[-2px] bg-[var(--ink)]"
                     />
-                    <h3 className="font-[family-name:var(--font-syne)] text-[19px] font-bold tracking-[-0.01em]">
+                    <h3 className="font-[family-name:var(--font-serif)] text-[19px] tracking-[-0.03em]">
                       {s.name}
                     </h3>
                   </div>
@@ -182,7 +182,7 @@ export default function Home() {
             <div className="grid gap-12 sm:grid-cols-3 sm:gap-10">
               {PILLARS.map((p) => (
                 <div key={p.title}>
-                  <h3 className="font-[family-name:var(--font-syne)] text-[clamp(1.15rem,2vw,1.35rem)] font-bold tracking-[-0.01em]">
+                  <h3 className="font-[family-name:var(--font-serif)] text-[clamp(1.15rem,2vw,1.35rem)] tracking-[-0.03em]">
                     {p.title}
                   </h3>
                   <p className="mt-2.5 max-w-[32ch] text-[15px] leading-relaxed text-[var(--ink-soft)]">
@@ -206,7 +206,7 @@ export default function Home() {
                 {...(c.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
-                className="group relative inline-flex items-center gap-2 py-1 text-[14px] text-[var(--ink-soft)] transition-colors hover:text-[var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--yellow)] after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="group relative inline-flex items-center gap-2 py-1 text-[14px] text-[var(--ink-soft)] transition-colors hover:text-[var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--ink)] after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 <svg
                   viewBox="0 0 24 24"

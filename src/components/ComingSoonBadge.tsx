@@ -92,7 +92,7 @@ export default function ComingSoonBadge() {
         <h2
           id="coming-soon-title"
           aria-label="Coming soon"
-          className="font-[family-name:var(--font-syne)] text-[clamp(2rem,7vw,3.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.02em]"
+          className="font-[family-name:var(--font-serif)] text-[clamp(2rem,7vw,3.2rem)] uppercase leading-[0.95] tracking-[-0.03em]"
         >
           {/* One word per line, deliberately. Letters are inline-blocks, so
               left to wrap on its own the line broke mid-word as

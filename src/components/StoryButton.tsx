@@ -27,7 +27,7 @@ export default function StoryButton() {
         className="play-btn relative ml-2 inline-grid h-7 w-7 translate-y-[5px] place-items-center rounded-full bg-[var(--ink)] align-baseline transition-transform duration-200 hover:scale-115 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--ink)]"
       >
         <svg viewBox="0 0 24 24" className="ml-[2px] h-3 w-3" aria-hidden="true">
-          <path d="M8 5.5 L19 12 L8 18.5 Z" fill="var(--yellow)" />
+          <path d="M8 5.5 L19 12 L8 18.5 Z" fill="var(--cream)" />
         </svg>
       </button>
 
@@ -42,7 +42,7 @@ export default function StoryButton() {
         <h2
           id="story-title"
           aria-label="We turn brands into buzz."
-          className="font-[family-name:var(--font-syne)] text-[clamp(2.1rem,6vw,3.6rem)] font-extrabold leading-[1.02] tracking-[-0.02em]"
+          className="font-[family-name:var(--font-serif)] text-[clamp(2.1rem,6vw,3.6rem)] leading-[1.02] tracking-[-0.03em]"
         >
           <span aria-hidden="true">
           {HEAD.map((w, i) => (
@@ -74,13 +74,9 @@ export default function StoryButton() {
               {l.accent && (
                 <>
                   {" "}
-                  <span className="relative inline-block font-semibold text-[var(--ink)]">
-                    <span className="relative z-10">{l.accent}</span>
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-x-[-4px] bottom-[2px] -z-0 h-[0.48em] bg-[var(--yellow)]"
-                    />
-                  </span>
+                  <em className="font-[family-name:var(--font-serif)] not-italic text-[var(--ink)]">
+                    {l.accent}
+                  </em>
                 </>
               )}
             </p>
@@ -93,7 +89,7 @@ export default function StoryButton() {
         >
           <a
             href="mailto:hello@hivemedia.co.in"
-            className="rounded-full bg-[var(--ink)] px-6 py-3 text-[14px] font-semibold text-[var(--cream)] transition-all hover:-translate-y-0.5 hover:bg-[var(--yellow)] hover:text-[var(--ink)] hover:shadow-hard"
+            className="rounded-full bg-[var(--ink)] px-6 py-3 text-[14px] font-semibold text-[var(--cream)] transition-all hover:-translate-y-0.5 hover:shadow-hard-lg"
           >
             Start a project
           </a>

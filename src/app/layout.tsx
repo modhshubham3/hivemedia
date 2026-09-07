@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Syne, Instrument_Sans } from "next/font/google";
+import { Instrument_Serif, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+// Both taken from the reference the client sent (opengrey.media), read off
+// its computed styles: Instrument Serif for headings, Space Grotesk for
+// everything else. Instrument Serif ships a single weight — hierarchy comes
+// from size and its tight negative tracking, not from bolding.
+const serif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const instrument = Instrument_Sans({
-  variable: "--font-instrument",
+const grotesk = Space_Grotesk({
+  variable: "--font-grotesk",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -48,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${syne.variable} ${instrument.variable} antialiased`}
+        className={`${serif.variable} ${grotesk.variable} antialiased`}
       >
         {children}
       </body>

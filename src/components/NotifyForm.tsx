@@ -35,7 +35,7 @@ export default function NotifyForm() {
         variant="dark"
         size="md"
         onClick={submit}
-        className="font-[family-name:var(--font-syne)] text-[15px] font-bold"
+        className="text-[15px] font-semibold"
       >
         Notify me
       </MagneticButton>
