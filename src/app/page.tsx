@@ -150,7 +150,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={120}>
-            <ul className="mt-14 grid gap-x-16 gap-y-11 sm:grid-cols-2">
+            <ul className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
               {SERVICES.map((s) => (
                 <li
                   key={s.name}
@@ -165,7 +165,7 @@ export default function Home() {
                       {s.name}
                     </h3>
                   </div>
-                  <p className="mt-2.5 max-w-[52ch] pl-[22px] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
+                  <p className="mt-2.5 pl-[22px] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
                     {s.body}
                   </p>
                 </li>
@@ -180,7 +180,7 @@ export default function Home() {
                     Something else?
                   </h3>
                 </div>
-                <p className="mt-2.5 max-w-[52ch] pl-[22px] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
+                <p className="mt-2.5 pl-[22px] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
                   Tell us what you&rsquo;re building and we&rsquo;ll say
                   straight away whether it&rsquo;s something we can do well.{" "}
                   <a
@@ -206,7 +206,7 @@ export default function Home() {
                   <h3 className="text-[clamp(1.3rem,2.2vw,1.6rem)] font-bold tracking-[-0.02em]">
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 max-w-[32ch] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
+                  <p className="mt-2.5 max-w-[40ch] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
                     {p.body}
                   </p>
                 </div>
