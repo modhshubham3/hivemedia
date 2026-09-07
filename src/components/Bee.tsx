@@ -2,22 +2,24 @@
  * The bee, transparent — for the one that flies over the illustration,
  * where the client's disc crop would blank out whatever sat beneath it.
  *
- * Geometry is measured off their artwork with a canvas scan rather than
- * eyeballed. Source bee occupies x 1267-2769, y 1451-2810 of their JPEG;
- * scaled by 0.08 that gives this canvas:
+ * Geometry measured off their JPEG with a canvas scan. The first pass got
+ * the wings wrong: it scanned black pixels down to y 2110, which caught the
+ * body's own top outline (that starts near y 2084) and reported the wings
+ * as wider than the body. Cutting above the outline gives the real figures.
  *
- *   wings   x 10-112, y 0-53    (aspect 1.93)
- *   body    x  6-102, y 54-102  (aspect 1.97 — the earlier draw was 2.5,
- *                                which is what made it look wrong)
+ * Source (bee occupies x 1267-2769, y 1451-2810), scaled by 0.08:
+ *   wings   x 22-112, y  0-47   (w 89, aspect 1.90 — inset 5 from the
+ *                                body's left, overhanging 10 on the right)
+ *   body    x  6-102, y 54-102  (w 96, aspect 1.97)
  *   antenna x 102-120
  *   stroke  6.3
  *
  * The header logo and favicon use their file directly; this is only for the
  * places that need alpha. An exact transparent bee needs the designer's
- * vector — this is the closest a redraw gets.
+ * vector — this is as close as a redraw gets.
  */
 
-export const BEE_VIEWBOX = "-4 -4 130 118";
+export const BEE_VIEWBOX = "-5 -6 133 120";
 
 export function BeeMark({ bodyFill = "#FFCE00" }: { bodyFill?: string }) {
   return (
@@ -29,25 +31,25 @@ export function BeeMark({ bodyFill = "#FFCE00" }: { bodyFill?: string }) {
         strokeLinejoin="round"
         strokeLinecap="round"
       >
-        {/* right wing, larger and partly behind */}
-        <path d="M44 26 L61 0 L95 0 L112 26 L95 52 L61 52 Z" />
-        {/* left wing, narrower and in front — nesting these was what read
-            as a hexagon with a diamond inside */}
-        <path d="M10 27 L24 1 L52 1 L66 27 L52 53 L24 53 Z" />
+        {/* right wing, larger */}
+        <path d="M52 23.5 L67 0 L97 0 L112 23.5 L97 47 L67 47 Z" />
+        {/* left wing, narrower, overlapping the right one rather than
+            nested inside it */}
+        <path d="M22 24 L34 1 L56 1 L68 24 L56 47 L34 47 Z" />
       </g>
       <g transform="rotate(-6 54 78)">
         <rect
-          x="3"
-          y="51"
-          width="102"
-          height="55"
-          rx="27.5"
+          x="3.15"
+          y="50.85"
+          width="101.9"
+          height="54.7"
+          rx="27.35"
           fill={bodyFill}
           stroke="#121110"
           strokeWidth="6.3"
         />
         <path
-          d="M40 51 V106 M60 51 V106 M80 51 V106"
+          d="M40 50.85 V105.55 M60 50.85 V105.55 M80 50.85 V105.55"
           stroke="#121110"
           strokeWidth="5.4"
           fill="none"
