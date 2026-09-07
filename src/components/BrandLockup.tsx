@@ -25,11 +25,20 @@ export const DISC_CROP = {
   mixBlendMode: "multiply" as const,
 };
 
-/** Disc plus wordmark plus tagline. Aspect 3.62:1. */
-const FULL_CROP = {
+/**
+ * Wordmark without the tagline, from the upper lockup.
+ *
+ * The full lower lockup was tried here and the "Digital Marketing" line
+ * came out ~6px tall — a grey smudge. Making it legible would need a 90px
+ * logo, which is too big for a header, so the tagline is dropped. The page
+ * says it anyway, in the header tag and the opening line.
+ *
+ *   x 2328-5435, y 1082-1578
+ */
+const WORDMARK_CROP = {
   backgroundImage: `url(${LOGO_SRC})`,
-  backgroundSize: "140.75% 339.73%",
-  backgroundPosition: "47.923% 73.929%",
+  backgroundSize: "205.99% 860.28%",
+  backgroundPosition: "70.695% 28.693%",
   backgroundRepeat: "no-repeat",
   mixBlendMode: "multiply" as const,
 };
@@ -40,13 +49,18 @@ export default function BrandLockup({
   className?: string;
 }) {
   return (
-    <span className={`inline-flex items-center ${className}`}>
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <span
         aria-hidden="true"
-        className="logo-bee block h-12 w-[174px] shrink-0"
-        style={FULL_CROP}
+        className="logo-bee block h-10 w-10 shrink-0"
+        style={DISC_CROP}
       />
-      <span className="sr-only">Hivemedia — Digital Marketing</span>
+      <span
+        aria-hidden="true"
+        className="block h-[21px] w-[131px] shrink-0"
+        style={WORDMARK_CROP}
+      />
+      <span className="sr-only">Hivemedia</span>
     </span>
   );
 }

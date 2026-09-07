@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BeeMark } from "@/components/Bee";
+import { DISC_CROP } from "@/components/BrandLockup";
 import Modal from "@/components/Modal";
 import NotifyForm from "@/components/NotifyForm";
 
@@ -57,15 +57,19 @@ export default function ComingSoonBadge() {
         labelledBy="coming-soon-title"
         panelClassName="max-w-[580px] px-6 py-12 sm:px-10 text-center"
       >
-        {/* Rotating comb ring with the bee resting inside */}
-        <div className="mx-auto mb-7 w-[132px]">
-          <svg viewBox="-110 -100 220 200" className="h-auto w-full">
+        {/* Rotating comb ring around the client's own logo disc */}
+        <div className="relative mx-auto mb-7 h-[132px] w-[132px]">
+          <svg
+            viewBox="-110 -100 220 200"
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full"
+          >
             <g
               className="hex-spin"
               fill="none"
               stroke="var(--yellow-deep)"
               strokeWidth="3"
-              opacity="0.5"
+              opacity="0.45"
             >
               {RING.map((c) => (
                 <path
@@ -75,11 +79,12 @@ export default function ComingSoonBadge() {
                 />
               ))}
             </g>
-            <path d={HEX} fill="var(--yellow)" stroke="var(--ink)" strokeWidth="4" />
-            <g transform="translate(-28 -32) scale(0.52)" className="comb-bee">
-              <BeeMark bodyFill="#FFFFFF" />
-            </g>
           </svg>
+          <span
+            aria-hidden="true"
+            className="absolute left-1/2 top-1/2 h-[74px] w-[74px] -translate-x-1/2 -translate-y-1/2"
+            style={DISC_CROP}
+          />
         </div>
 
         {/* Letters are split for the drop animation, which destroys the word
@@ -89,20 +94,26 @@ export default function ComingSoonBadge() {
           aria-label="Coming soon"
           className="font-[family-name:var(--font-syne)] text-[clamp(2rem,7vw,3.2rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.02em]"
         >
+          {/* One word per line, deliberately. Letters are inline-blocks, so
+              left to wrap on its own the line broke mid-word as
+              "COMING SO / ON", and at this size the two words never fit on
+              one line inside the panel anyway. */}
           <span aria-hidden="true">
-          {WORD.split("").map((ch, i) =>
-            ch === " " ? (
-              <span key={i} className="inline-block w-[0.3em]" />
-            ) : (
-              <span
-                key={i}
-                className="letter-drop text-poster"
-                style={{ animationDelay: `${0.25 + i * 0.055}s` }}
-              >
-                {ch}
+            {WORD.split(" ").map((word, w) => (
+              <span key={word} className="block whitespace-nowrap">
+                {word.split("").map((ch, i) => (
+                  <span
+                    key={`${w}-${i}`}
+                    className="letter-drop text-poster"
+                    style={{
+                      animationDelay: `${0.25 + (w * 7 + i) * 0.055}s`,
+                    }}
+                  >
+                    {ch}
+                  </span>
+                ))}
               </span>
-            ),
-          )}
+            ))}
           </span>
         </h2>
 
