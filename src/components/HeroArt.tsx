@@ -52,12 +52,17 @@ export default function HeroArt() {
         focusable="false"
       >
         <filter id="grey-key" colorInterpolationFilters="sRGB">
+          {/* Alpha row is (-B + A_in), not (-B + 1). With the constant the
+              area of the filter region that the background does not cover is
+              transparent black — B=0, so alpha came out 1 and it rendered as
+              a solid black frame around the bee. Multiplying by the incoming
+              alpha keeps empty space empty. */}
           <feColorMatrix
             type="matrix"
             values="1 0 0 0 0
                     0 1 0 0 0
                     0 0 1 0 0
-                    0 0 -1 0 1"
+                    0 0 -1 1 0"
           />
           <feComponentTransfer>
             <feFuncA type="linear" slope="2.4" intercept="-1.1" />
