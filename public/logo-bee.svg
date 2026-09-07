@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 126" role="img" aria-label="Hivemedia">
   <!-- The client's lockup sets the bee inside a grey disc, so the header
        logo and favicon do too. Grey sampled from their artwork: #8C8C8C.
-       The bare bee (src/components/Bee.tsx) stays bare — it is the one that
-       flies around the page, where a disc would look wrong. -->
+       The flying bee is this same file with the grey keyed out by an SVG
+       filter, so nothing on the page is a redraw. -->
   <circle cx="63" cy="63" r="63" fill="#8C8C8C"/>
   <g transform="translate(25.7 20.9) scale(0.69)">
     <g fill="none" stroke="#121110" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round">

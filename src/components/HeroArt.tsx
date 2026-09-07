@@ -2,17 +2,35 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { BeeMark, BEE_VIEWBOX } from "@/components/Bee";
+import { LOGO_SRC } from "@/components/BrandLockup";
 
 /**
  * Hero artwork: an unDraw illustration (Katerina Limpitsouni, undraw.co —
  * free for commercial use, no attribution required), recoloured to the
  * brand palette and carrying one badge per service listed on the page.
  *
- * The bee over it is the transparent redraw, not the client's disc crop:
- * the disc is a filled grey circle, so it blanked out the artwork beneath.
- * It flies on hover.
+ * The bee over it is the client's own artwork, not a redraw. Their file has
+ * no alpha and the bee always sits on grey, so the grey is keyed out with an
+ * SVG filter: blue channel into alpha, then a ramp. Their greys (#8C8C8C,
+ * blue 140) fall to zero while the black outlines (blue 16) and the yellow
+ * body (blue 0) stay solid — and the wing interiors, being the same grey,
+ * come out hollow, which is exactly right.
+ *
+ * Checked against the source before wiring it up: of the disc region,
+ * 1.23M pixels key to transparent, 344k stay — 209k black, 133k yellow,
+ * zero grey survivors — and the result measures 1.109 wide-to-tall against
+ * their bee's 1.105.
+ *
+ * Crop is the bee alone, measured off the source: x 1074-1943, y 2454-3239.
  */
+const BEE_CROP = {
+  backgroundImage: `url(${LOGO_SRC})`,
+  backgroundSize: "736.48% 543.57%",
+  backgroundPosition: "19.418% 70.477%",
+  backgroundRepeat: "no-repeat",
+  filter: "url(#grey-key)",
+};
+
 export default function HeroArt() {
   const [flying, setFlying] = useState(false);
   const timer = useRef<number | undefined>(undefined);
@@ -26,6 +44,27 @@ export default function HeroArt() {
 
   return (
     <div className="relative w-full max-w-[500px]">
+      {/* Keys the grey ground out of their JPEG so the bee can sit on the
+          illustration without a plate behind it. */}
+      <svg
+        aria-hidden="true"
+        className="pointer-events-none absolute h-0 w-0"
+        focusable="false"
+      >
+        <filter id="grey-key" colorInterpolationFilters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 -1 0 1"
+          />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="2.4" intercept="-1.1" />
+          </feComponentTransfer>
+        </filter>
+      </svg>
+
       <Image
         src="/hero-illustration.svg"
         alt="A content team producing and publishing social media content, with a badge for each service"
@@ -41,15 +80,14 @@ export default function HeroArt() {
         className={`comb-bee absolute left-[3%] top-[6%] w-[16%] min-w-[40px] ${
           flying ? "is-flying" : ""
         }`}
+        style={{ aspectRatio: "1.107" }}
       >
-        <svg
-          viewBox={BEE_VIEWBOX}
-          aria-hidden="true"
-          className="bee-hit h-auto w-full"
+        <div
+          className="bee-hit h-full w-full"
+          style={BEE_CROP}
           onMouseEnter={launch}
-        >
-          <BeeMark />
-        </svg>
+          aria-hidden="true"
+        />
       </div>
     </div>
   );
