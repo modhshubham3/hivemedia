@@ -86,8 +86,8 @@ export default function Home() {
       {/* Padding respects the notch: on a phone the lockup was sitting hard
           against the top edge and clipping. */}
       {/* Padding must stay classes, not inline style: inline always beat
-          lg:px-8, so on wide screens the lockup sat off the hero's edge. */}
-      <header className="relative z-10 mx-auto flex w-full max-w-[1400px] items-center justify-between px-[max(6vw,calc(env(safe-area-inset-left)+1rem))] pb-5 pt-[max(1.5rem,calc(env(safe-area-inset-top)+0.75rem))] lg:px-8">
+          lg:px-12, so on wide screens the lockup sat off the hero's edge. */}
+      <header className="relative z-10 mx-auto flex w-full max-w-[1660px] items-center justify-between px-[max(6vw,calc(env(safe-area-inset-left)+1rem))] pb-5 pt-[max(1.5rem,calc(env(safe-area-inset-top)+0.75rem))] lg:px-12">
         <a
           href="#top"
           className="logo-lockup flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
@@ -101,7 +101,7 @@ export default function Home() {
       </header>
 
       {/* ── Hero ───────────────────────────────────────────── */}
-      <main className="relative z-20 mx-auto flex w-full max-w-[1400px] flex-1 items-center px-[6vw] pb-14 pt-4 lg:px-8">
+      <main className="relative z-20 mx-auto flex w-full max-w-[1660px] flex-1 items-center px-[6vw] pb-14 pt-4 lg:px-12">
         <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="text-center lg:text-left">
             <Reveal>
@@ -109,7 +109,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={90}>
-              <h1 className="mt-6 text-[clamp(2.7rem,6vw,4.9rem)] font-extrabold leading-[1.02] tracking-[-0.04em] text-balance">
+              <h1 className="mt-6 text-[clamp(3rem,7vw,6.2rem)] font-extrabold leading-[0.98] tracking-[-0.045em] text-balance">
                 We turn brands
                 <br />
                 into <span className="text-poster">buzz.</span>
@@ -117,7 +117,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={170}>
-              <p className="mx-auto mt-6 max-w-[46ch] text-[clamp(1.05rem,1.3vw,1.15rem)] font-medium leading-relaxed text-[var(--ink-soft)] lg:mx-0">
+              <p className="mx-auto mt-6 max-w-[50ch] text-[clamp(1.1rem,1.4vw,1.3rem)] font-medium leading-relaxed text-[var(--ink-soft)] lg:mx-0">
                 A creative digital agency built on one idea: good marketing
                 should feel less like noise and more like connection. Content,
                 campaigns and creative that make people stop scrolling.
@@ -141,10 +141,10 @@ export default function Home() {
 
       {/* ── Services ───────────────────────────────────────── */}
       <section className="relative z-10 border-t border-[var(--hairline)] bg-[var(--cream-alt)]">
-        <div className="mx-auto max-w-[1400px] px-[6vw] py-20 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-[1660px] px-[6vw] py-20 lg:px-12 lg:py-24">
           <Reveal>
             <p className="eyebrow">What we do</p>
-            <h2 className="mt-5 max-w-[20ch] text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.035em] text-balance">
+            <h2 className="mt-5 max-w-[24ch] text-[clamp(2.2rem,4.6vw,3.8rem)] font-extrabold leading-[1.04] tracking-[-0.04em] text-balance">
               How we help a brand get noticed.
             </h2>
           </Reveal>
@@ -161,11 +161,11 @@ export default function Home() {
                       aria-hidden="true"
                       className="hex h-2 w-2 shrink-0 translate-y-[-2px] bg-[var(--ink)]"
                     />
-                    <h3 className="text-[19px] font-bold tracking-[-0.02em]">
+                    <h3 className="text-[22px] font-bold tracking-[-0.02em]">
                       {s.name}
                     </h3>
                   </div>
-                  <p className="mt-2.5 max-w-[42ch] pl-[22px] text-[15.5px] leading-relaxed text-[var(--ink-soft)]">
+                  <p className="mt-2.5 max-w-[52ch] pl-[22px] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
                     {s.body}
                   </p>
                 </li>
@@ -177,15 +177,15 @@ export default function Home() {
 
       {/* ── How we work ────────────────────────────────────── */}
       <section className="relative z-10 border-t border-[var(--hairline)]">
-        <div className="mx-auto max-w-[1400px] px-[6vw] py-20 lg:px-8">
+        <div className="mx-auto max-w-[1660px] px-[6vw] py-20 lg:px-12">
           <Reveal>
             <div className="grid gap-12 sm:grid-cols-3 sm:gap-10">
               {PILLARS.map((p) => (
                 <div key={p.title}>
-                  <h3 className="text-[clamp(1.15rem,2vw,1.35rem)] font-bold tracking-[-0.02em]">
+                  <h3 className="text-[clamp(1.3rem,2.2vw,1.6rem)] font-bold tracking-[-0.02em]">
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 max-w-[32ch] text-[15.5px] leading-relaxed text-[var(--ink-soft)]">
+                  <p className="mt-2.5 max-w-[32ch] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
                     {p.body}
                   </p>
                 </div>
@@ -197,7 +197,7 @@ export default function Home() {
 
       {/* ── Footer ─────────────────────────────────────────── */}
       <footer className="relative z-10 border-t border-[var(--hairline)] bg-[var(--cream-alt)]">
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-8 gap-y-4 px-[6vw] py-7 text-center sm:justify-between sm:text-left lg:px-8">
+        <div className="mx-auto flex max-w-[1660px] flex-wrap items-center justify-center gap-x-8 gap-y-4 px-[6vw] py-7 text-center sm:justify-between sm:text-left lg:px-12">
           <nav aria-label="Contact" className="flex flex-wrap justify-center gap-7">
             {CONTACTS.map((c) => (
               <a

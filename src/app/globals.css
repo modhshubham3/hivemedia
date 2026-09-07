@@ -131,7 +131,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  font-size: 0.6875rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -153,24 +153,91 @@ body {
     opacity: 1;
   }
 }
-@keyframes comb-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-7px);
-  }
-}
 .comb-cell {
   opacity: 0;
   animation: comb-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
   transition: fill 0.25s ease;
   cursor: pointer;
 }
+/* The bee roams the page continuously rather than waiting for a hover —
+   a bee that only moves when you find it isn't flying around the page.
+   Offsets are viewport-relative; the route runs left and down because the
+   bee rests on the right of the hero and body clips overflow-x. */
+@keyframes bee-roam {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  9% {
+    transform: translate(-13vw, 5vh) rotate(-10deg);
+  }
+  19% {
+    transform: translate(-33vw, -2vh) rotate(9deg);
+  }
+  29% {
+    transform: translate(-51vw, 11vh) rotate(-6deg);
+  }
+  40% {
+    transform: translate(-42vw, 30vh) rotate(12deg);
+  }
+  52% {
+    transform: translate(-18vw, 42vh) rotate(-9deg);
+  }
+  64% {
+    transform: translate(3vw, 33vh) rotate(10deg);
+  }
+  77% {
+    transform: translate(-9vw, 17vh) rotate(-12deg);
+  }
+  89% {
+    transform: translate(5vw, 6vh) rotate(7deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
 .comb-bee {
-  animation: comb-float 5s ease-in-out infinite;
-  animation-delay: 0.9s;
+  animation: bee-roam 26s ease-in-out infinite;
+  z-index: 30;
+}
+
+/* Narrow screens stack the hero, so the bee rests near the left edge and
+   the wide route would fly it off the page. Mirrored and shallower. */
+@keyframes bee-roam-narrow {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  12% {
+    transform: translate(14vw, -4vh) rotate(9deg);
+  }
+  26% {
+    transform: translate(38vw, 4vh) rotate(-8deg);
+  }
+  42% {
+    transform: translate(54vw, 13vh) rotate(11deg);
+  }
+  58% {
+    transform: translate(34vw, 20vh) rotate(-10deg);
+  }
+  74% {
+    transform: translate(10vw, 12vh) rotate(8deg);
+  }
+  88% {
+    transform: translate(22vw, 3vh) rotate(-6deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+@media (max-width: 1023px) {
+  .comb-bee {
+    animation-name: bee-roam-narrow;
+    animation-duration: 22s;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .comb-bee {
+    animation: none;
+  }
 }
 
 /* The cells used to cycle colour on a loop; with the palette calmed down that
@@ -374,71 +441,6 @@ body {
   }
 }
 
-/* ── Bee tours the page on hover ─────────────────────────
-   Distances are viewport-relative so the route covers the page rather than
-   a box around the bee. It rests on the right of the hero, so the path runs
-   left and down — body has overflow-x hidden, and going right would clip. */
-@keyframes bee-fly {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  12% {
-    transform: translate(-8vw, -6vh) rotate(-12deg);
-  }
-  26% {
-    transform: translate(-27vw, 3vh) rotate(10deg);
-  }
-  40% {
-    transform: translate(-40vw, 19vh) rotate(-6deg);
-  }
-  55% {
-    transform: translate(-25vw, 37vh) rotate(14deg);
-  }
-  70% {
-    transform: translate(-5vw, 31vh) rotate(-10deg);
-  }
-  86% {
-    transform: translate(7vw, 13vh) rotate(8deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-}
-/* Narrow screens stack the hero, which puts the bee near the left edge —
-   the wide route would fly it clean off the page (measured: x -118 at 375px
-   wide). So it runs the other way, and shallower, to stay in view. */
-@keyframes bee-fly-narrow {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  14% {
-    transform: translate(12vw, -4vh) rotate(10deg);
-  }
-  30% {
-    transform: translate(34vw, 2vh) rotate(-8deg);
-  }
-  48% {
-    transform: translate(52vw, 9vh) rotate(12deg);
-  }
-  64% {
-    transform: translate(32vw, 14vh) rotate(-10deg);
-  }
-  80% {
-    transform: translate(8vw, 9vh) rotate(8deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-}
-.comb-bee.is-flying {
-  animation: bee-fly 7s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  z-index: 30;
-}
-@media (max-width: 1023px) {
-  .comb-bee.is-flying {
-    animation-name: bee-fly-narrow;
-  }
-}
 /* Hover target only — nothing to click, so no pointer cursor and no ring. */
 .bee-hit:focus {
   outline: none;

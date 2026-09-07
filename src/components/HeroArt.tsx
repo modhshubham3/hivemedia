@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { useRef, useState } from "react";
 import { LOGO_SRC } from "@/components/BrandLockup";
 
 /**
@@ -11,15 +8,18 @@ import { LOGO_SRC } from "@/components/BrandLockup";
  *
  * The bee over it is the client's own artwork, not a redraw. Their file has
  * no alpha and the bee always sits on grey, so the grey is keyed out with an
- * SVG filter: blue channel into alpha, then a ramp. Their greys (#8C8C8C,
- * blue 140) fall to zero while the black outlines (blue 16) and the yellow
- * body (blue 0) stay solid — and the wing interiors, being the same grey,
+ * SVG filter: blue channel into alpha, then a ramp. Their grey (#8C8C8C,
+ * blue 140) falls to zero while the black outlines (blue 16) and the yellow
+ * body (blue 0) stay solid — and the wing interiors, being that same grey,
  * come out hollow, which is exactly right.
  *
- * Checked against the source before wiring it up: of the disc region,
- * 1.23M pixels key to transparent, 344k stay — 209k black, 133k yellow,
- * zero grey survivors — and the result measures 1.109 wide-to-tall against
- * their bee's 1.105.
+ * Checked against the source before wiring it up: of the disc region, 1.23M
+ * pixels key to transparent and 344k stay — 209k black, 133k yellow, zero
+ * grey survivors — and the result measures 1.109 wide-to-tall against their
+ * bee's 1.105.
+ *
+ * It roams the page on a loop (see bee-roam in globals.css); no hover
+ * needed, so this stays a server component.
  *
  * Crop is the bee alone, measured off the source: x 1074-1943, y 2454-3239.
  */
@@ -32,18 +32,8 @@ const BEE_CROP = {
 };
 
 export default function HeroArt() {
-  const [flying, setFlying] = useState(false);
-  const timer = useRef<number | undefined>(undefined);
-
-  const launch = () => {
-    if (flying) return;
-    setFlying(true);
-    window.clearTimeout(timer.current);
-    timer.current = window.setTimeout(() => setFlying(false), 7000);
-  };
-
   return (
-    <div className="relative w-full max-w-[500px]">
+    <div className="relative w-full max-w-[560px]">
       {/* Keys the grey ground out of their JPEG so the bee can sit on the
           illustration without a plate behind it. */}
       <svg
@@ -52,11 +42,11 @@ export default function HeroArt() {
         focusable="false"
       >
         <filter id="grey-key" colorInterpolationFilters="sRGB">
-          {/* Alpha row is (-B + A_in), not (-B + 1). With the constant the
-              area of the filter region that the background does not cover is
-              transparent black — B=0, so alpha came out 1 and it rendered as
-              a solid black frame around the bee. Multiplying by the incoming
-              alpha keeps empty space empty. */}
+          {/* Alpha row is (-B + A_in), not (-B + 1). With the constant, the
+              part of the filter region the background does not cover is
+              transparent black — B=0 — so alpha came out 1 and rendered as a
+              solid black frame. Multiplying by incoming alpha keeps empty
+              space empty. */}
           <feColorMatrix
             type="matrix"
             values="1 0 0 0 0
@@ -79,21 +69,11 @@ export default function HeroArt() {
         className="h-auto w-full"
       />
 
-      {/* Flight sits on the wrapper: an SVG clips at its viewBox, which
-          trapped the bee in a box when the animation lived inside it. */}
       <div
-        className={`comb-bee absolute left-[3%] top-[6%] z-30 w-[16%] min-w-[44px] ${
-          flying ? "is-flying" : ""
-        }`}
-        style={{ aspectRatio: "1.107" }}
-      >
-        <div
-          className="bee-hit h-full w-full"
-          style={BEE_CROP}
-          onMouseEnter={launch}
-          aria-hidden="true"
-        />
-      </div>
+        aria-hidden="true"
+        className="comb-bee absolute left-[3%] top-[6%] w-[16%] min-w-[46px]"
+        style={{ aspectRatio: "1.107", ...BEE_CROP }}
+      />
     </div>
   );
 }
