@@ -86,8 +86,8 @@ export default function Home() {
       {/* Padding respects the notch: on a phone the lockup was sitting hard
           against the top edge and clipping. */}
       {/* Padding must stay classes, not inline style: inline always beat
-          lg:px-12, so on wide screens the lockup sat off the hero's edge. */}
-      <header className="relative z-10 mx-auto flex w-full max-w-[1660px] items-center justify-between px-[max(6vw,calc(env(safe-area-inset-left)+1rem))] pb-5 pt-[max(1.5rem,calc(env(safe-area-inset-top)+0.75rem))] lg:px-12">
+          lg:px-14, so on wide screens the lockup sat off the hero's edge. */}
+      <header className="relative z-10 mx-auto flex w-full max-w-[1780px] items-center justify-between px-[max(6vw,calc(env(safe-area-inset-left)+1rem))] pb-5 pt-[max(1.5rem,calc(env(safe-area-inset-top)+0.75rem))] lg:px-14">
         <a
           href="#top"
           className="logo-lockup flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
@@ -101,7 +101,7 @@ export default function Home() {
       </header>
 
       {/* ── Hero ───────────────────────────────────────────── */}
-      <main className="relative z-20 mx-auto flex w-full max-w-[1660px] flex-1 items-center px-[6vw] pb-14 pt-4 lg:px-12">
+      <main className="relative z-20 mx-auto flex w-full max-w-[1780px] flex-1 items-center px-[6vw] pb-14 pt-4 lg:px-14">
         <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="text-center lg:text-left">
             <Reveal>
@@ -141,7 +141,7 @@ export default function Home() {
 
       {/* ── Services ───────────────────────────────────────── */}
       <section className="relative z-10 border-t border-[var(--hairline)] bg-[var(--cream-alt)]">
-        <div className="mx-auto max-w-[1660px] px-[6vw] py-20 lg:px-12 lg:py-24">
+        <div className="mx-auto max-w-[1780px] px-[6vw] py-20 lg:px-14 lg:py-24">
           <Reveal>
             <p className="eyebrow">What we do</p>
             <h2 className="mt-5 max-w-[24ch] text-[clamp(2.2rem,4.6vw,3.8rem)] font-extrabold leading-[1.04] tracking-[-0.04em] text-balance">
@@ -170,6 +170,27 @@ export default function Home() {
                   </p>
                 </li>
               ))}
+              <li className="border-t border-[var(--hairline)] pt-6">
+                <div className="flex items-baseline gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="hex h-2 w-2 shrink-0 translate-y-[-2px] bg-[var(--yellow)]"
+                  />
+                  <h3 className="text-[22px] font-bold tracking-[-0.02em]">
+                    Something else?
+                  </h3>
+                </div>
+                <p className="mt-2.5 max-w-[52ch] pl-[22px] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
+                  Tell us what you&rsquo;re building and we&rsquo;ll say
+                  straight away whether it&rsquo;s something we can do well.{" "}
+                  <a
+                    href="mailto:hello@hivemedia.co.in"
+                    className="font-semibold text-[var(--ink)] underline decoration-[var(--yellow)] decoration-2 underline-offset-4 transition-colors hover:decoration-[var(--ink)]"
+                  >
+                    hello@hivemedia.co.in
+                  </a>
+                </p>
+              </li>
             </ul>
           </Reveal>
         </div>
@@ -177,7 +198,7 @@ export default function Home() {
 
       {/* ── How we work ────────────────────────────────────── */}
       <section className="relative z-10 border-t border-[var(--hairline)]">
-        <div className="mx-auto max-w-[1660px] px-[6vw] py-20 lg:px-12">
+        <div className="mx-auto max-w-[1780px] px-[6vw] py-20 lg:px-14">
           <Reveal>
             <div className="grid gap-12 sm:grid-cols-3 sm:gap-10">
               {PILLARS.map((p) => (
@@ -197,7 +218,7 @@ export default function Home() {
 
       {/* ── Footer ─────────────────────────────────────────── */}
       <footer className="relative z-10 border-t border-[var(--hairline)] bg-[var(--cream-alt)]">
-        <div className="mx-auto flex max-w-[1660px] flex-wrap items-center justify-center gap-x-8 gap-y-4 px-[6vw] py-7 text-center sm:justify-between sm:text-left lg:px-12">
+        <div className="mx-auto flex max-w-[1780px] flex-wrap items-center justify-center gap-x-8 gap-y-4 px-[6vw] py-7 text-center sm:justify-between sm:text-left lg:px-14">
           <nav aria-label="Contact" className="flex flex-wrap justify-center gap-7">
             {CONTACTS.map((c) => (
               <a
