@@ -39,7 +39,7 @@ export default function HeroArt() {
     if (flying) return;
     setFlying(true);
     window.clearTimeout(timer.current);
-    timer.current = window.setTimeout(() => setFlying(false), 2800);
+    timer.current = window.setTimeout(() => setFlying(false), 7000);
   };
 
   return (
@@ -82,7 +82,7 @@ export default function HeroArt() {
       {/* Flight sits on the wrapper: an SVG clips at its viewBox, which
           trapped the bee in a box when the animation lived inside it. */}
       <div
-        className={`comb-bee absolute left-[3%] top-[6%] w-[16%] min-w-[40px] ${
+        className={`comb-bee absolute left-[3%] top-[6%] z-30 w-[16%] min-w-[44px] ${
           flying ? "is-flying" : ""
         }`}
         style={{ aspectRatio: "1.107" }}

@@ -42,7 +42,7 @@ export default function StoryButton() {
         <h2
           id="story-title"
           aria-label="We turn brands into buzz."
-          className="font-[family-name:var(--font-serif)] text-[clamp(2.1rem,6vw,3.6rem)] leading-[1.02] tracking-[-0.03em]"
+          className="text-[clamp(2.1rem,6vw,3.6rem)] leading-[1.02] tracking-[-0.03em]"
         >
           <span aria-hidden="true">
           {HEAD.map((w, i) => (
@@ -74,7 +74,7 @@ export default function StoryButton() {
               {l.accent && (
                 <>
                   {" "}
-                  <em className="font-[family-name:var(--font-serif)] not-italic text-[var(--ink)]">
+                  <em className="not-italic text-[var(--ink)]">
                     {l.accent}
                   </em>
                 </>

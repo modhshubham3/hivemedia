@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Space_Grotesk } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
-// Both taken from the reference the client sent (opengrey.media), read off
-// its computed styles: Instrument Serif for headings, Space Grotesk for
-// everything else. Instrument Serif ships a single weight — hierarchy comes
-// from size and its tight negative tracking, not from bolding.
-const serif = Instrument_Serif({
-  variable: "--font-serif",
+/**
+ * Geist, from the reference the client sent (cheesecakedigital.in), read off
+ * its computed styles. That site pairs Geist with Mango Grotesque for its two
+ * biggest headings, but Mango Grotesque is not on Google Fonts (the API
+ * returns 404) — it is a licensed face, so it cannot be embedded here. Geist
+ * carries about a hundred elements on their page against Mango's nine, so it
+ * is the voice of that design anyway, and it ships 100-900 which is what
+ * lets the headings actually go bold.
+ */
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const grotesk = Space_Grotesk({
-  variable: "--font-grotesk",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -44,7 +41,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#FBF6E9",
+  themeColor: "#FDFBF5",
 };
 
 export default function RootLayout({
@@ -52,11 +49,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-        className={`${serif.variable} ${grotesk.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${geist.variable} antialiased`}>{children}</body>
     </html>
   );
 }

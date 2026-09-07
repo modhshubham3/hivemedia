@@ -80,14 +80,13 @@
 }
 
 @theme inline {
-  --font-display: var(--font-serif), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
 }
 
@@ -101,7 +100,7 @@ body {
    an emphasised word. */
 .text-poster {
   color: var(--ink);
-  font-style: italic;
+  font-weight: 800;
 }
 
 /* Soft shadows replace the flat black offsets, which read as loud. */
@@ -375,32 +374,70 @@ body {
   }
 }
 
-/* ── Bee takes off when clicked ─────────────────────────── */
+/* ── Bee tours the page on hover ─────────────────────────
+   Distances are viewport-relative so the route covers the page rather than
+   a box around the bee. It rests on the right of the hero, so the path runs
+   left and down — body has overflow-x hidden, and going right would clip. */
 @keyframes bee-fly {
   0% {
     transform: translate(0, 0) rotate(0deg);
   }
-  16% {
-    transform: translate(34px, -52px) rotate(14deg);
+  12% {
+    transform: translate(-8vw, -6vh) rotate(-12deg);
   }
-  34% {
-    transform: translate(92px, -14px) rotate(-8deg);
+  26% {
+    transform: translate(-27vw, 3vh) rotate(10deg);
   }
-  52% {
-    transform: translate(52px, 58px) rotate(12deg);
+  40% {
+    transform: translate(-40vw, 19vh) rotate(-6deg);
+  }
+  55% {
+    transform: translate(-25vw, 37vh) rotate(14deg);
   }
   70% {
-    transform: translate(-58px, 34px) rotate(-14deg);
+    transform: translate(-5vw, 31vh) rotate(-10deg);
   }
   86% {
-    transform: translate(-26px, -30px) rotate(8deg);
+    transform: translate(7vw, 13vh) rotate(8deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+/* Narrow screens stack the hero, which puts the bee near the left edge —
+   the wide route would fly it clean off the page (measured: x -118 at 375px
+   wide). So it runs the other way, and shallower, to stay in view. */
+@keyframes bee-fly-narrow {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  14% {
+    transform: translate(12vw, -4vh) rotate(10deg);
+  }
+  30% {
+    transform: translate(34vw, 2vh) rotate(-8deg);
+  }
+  48% {
+    transform: translate(52vw, 9vh) rotate(12deg);
+  }
+  64% {
+    transform: translate(32vw, 14vh) rotate(-10deg);
+  }
+  80% {
+    transform: translate(8vw, 9vh) rotate(8deg);
   }
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
 }
 .comb-bee.is-flying {
-  animation: bee-fly 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  animation: bee-fly 7s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  z-index: 30;
+}
+@media (max-width: 1023px) {
+  .comb-bee.is-flying {
+    animation-name: bee-fly-narrow;
+  }
 }
 /* Hover target only — nothing to click, so no pointer cursor and no ring. */
 .bee-hit:focus {
