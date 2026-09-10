@@ -14,7 +14,7 @@ export default function NotifyForm() {
     const trimmed = email.trim();
     if (!trimmed) return;
     window.location.href =
-      "mailto:hello@hivemedia.co.in?subject=Notify me at launch&body=" +
+      "mailto:hivemedia.co.in@gmail.com?subject=Notify me at launch&body=" +
       encodeURIComponent(trimmed);
   };
 

@@ -7,8 +7,12 @@ import StoryButton from "@/components/StoryButton";
 import HeroArt from "@/components/HeroArt";
 
 // Descriptions are the client's own, lifted from their demo. Web Development
-// is new, so its line is a draft for them to approve.
+// and Branding are additions, so those two lines are drafts to approve.
 const SERVICES = [
+  {
+    name: "Influencer Marketing",
+    body: "The right voices for your brand — creator partnerships that feel genuine, not rented.",
+  },
   {
     name: "Content Creation",
     body: "Scroll-stopping content built around your brand voice — reels, posts and stories that don't feel like ads.",
@@ -22,10 +26,6 @@ const SERVICES = [
     body: "Sites and landing pages that load fast, look like the rest of your brand, and are built to be found.",
   },
   {
-    name: "Influencer Marketing",
-    body: "The right voices for your brand — creator partnerships that feel genuine, not rented.",
-  },
-  {
     name: "Graphic Design",
     body: "Logos, brand kits and visuals that keep every touchpoint looking like it belongs to you.",
   },
@@ -34,8 +34,8 @@ const SERVICES = [
     body: "Calendars, captions and community — we keep your channels active so you don't have to.",
   },
   {
-    name: "Content Distribution",
-    body: "The right content on the right platform at the right time, so nothing goes unseen.",
+    name: "Branding",
+    body: "Name, look, voice and the rules that hold them together, so the brand stays itself everywhere it shows up.",
   },
 ];
 
@@ -47,8 +47,8 @@ const PILLARS = [
 
 const CONTACTS = [
   {
-    href: "mailto:hello@hivemedia.co.in",
-    label: "hello@hivemedia.co.in",
+    href: "mailto:hivemedia.co.in@gmail.com",
+    label: "hivemedia.co.in@gmail.com",
     icon: (
       <>
         <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -64,8 +64,8 @@ const CONTACTS = [
     ),
   },
   {
-    href: "https://instagram.com/Hivemedia.co.in",
-    label: "@Hivemedia.co.in",
+    href: "https://www.instagram.com/hivemedia.co.in",
+    label: "@hivemedia.co.in",
     external: true,
     icon: (
       <>
@@ -184,10 +184,10 @@ export default function Home() {
                   Tell us what you&rsquo;re building and we&rsquo;ll say
                   straight away whether it&rsquo;s something we can do well.{" "}
                   <a
-                    href="mailto:hello@hivemedia.co.in"
+                    href="mailto:hivemedia.co.in@gmail.com"
                     className="font-semibold text-[var(--ink)] underline decoration-[var(--yellow)] decoration-2 underline-offset-4 transition-colors hover:decoration-[var(--ink)]"
                   >
-                    hello@hivemedia.co.in
+                    hivemedia.co.in@gmail.com
                   </a>
                 </p>
               </li>
@@ -206,7 +206,7 @@ export default function Home() {
                   <h3 className="text-[clamp(1.3rem,2.2vw,1.6rem)] font-bold tracking-[-0.02em]">
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 max-w-[40ch] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
+                  <p className="mt-3 max-w-[40ch] text-[17.5px] leading-relaxed text-[var(--ink)]">
                     {p.body}
                   </p>
                 </div>
