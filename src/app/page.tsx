@@ -200,13 +200,13 @@ export default function Home() {
       <section className="relative z-10 border-t border-[var(--hairline)]">
         <div className="mx-auto max-w-[1780px] px-[6vw] py-20 lg:px-14">
           <Reveal>
-            <div className="grid gap-12 sm:grid-cols-3 sm:gap-10">
+            <div className="grid gap-10 sm:grid-cols-3 sm:gap-12">
               {PILLARS.map((p) => (
-                <div key={p.title}>
-                  <h3 className="text-[clamp(1.3rem,2.2vw,1.6rem)] font-bold tracking-[-0.02em]">
+                <div key={p.title} className="border-t-2 border-[var(--ink)] pt-6">
+                  <h3 className="text-[clamp(1.55rem,2.6vw,2.05rem)] font-extrabold tracking-[-0.03em]">
                     {p.title}
                   </h3>
-                  <p className="mt-3 max-w-[40ch] text-[17.5px] leading-relaxed text-[var(--ink)]">
+                  <p className="mt-3 max-w-[40ch] text-[18.5px] font-medium leading-relaxed text-[var(--ink)]">
                     {p.body}
                   </p>
                 </div>

@@ -130,17 +130,17 @@ body {
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  gap: 1rem;
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink);
 }
 .eyebrow::before {
   content: "";
-  width: 2.5rem;
-  height: 2px;
+  width: 3.5rem;
+  height: 4px;
   background: var(--ink);
 }
 
