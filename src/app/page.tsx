@@ -144,7 +144,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1780px] px-[6vw] py-20 lg:px-14 lg:py-24">
           <Reveal>
             <p className="eyebrow">What we do</p>
-            <h2 className="mt-5 max-w-[24ch] text-[clamp(2.2rem,4.6vw,3.8rem)] font-extrabold leading-[1.04] tracking-[-0.04em] text-balance">
+            <h2 className="mt-6 max-w-[24ch] text-[clamp(2.2rem,4.6vw,3.8rem)] font-extrabold leading-[1.04] tracking-[-0.04em] text-balance">
               How we help a brand get noticed.
             </h2>
           </Reveal>

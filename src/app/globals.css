@@ -133,12 +133,14 @@ body {
   gap: 1rem;
   font-size: clamp(1.15rem, 1.6vw, 1.5rem);
   font-weight: 800;
-  letter-spacing: 0.16em;
+  line-height: 1;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--ink);
 }
 .eyebrow::before {
   content: "";
+  flex: none;
   width: 3.5rem;
   height: 4px;
   background: var(--ink);
