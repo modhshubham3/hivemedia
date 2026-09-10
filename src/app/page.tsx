@@ -307,6 +307,24 @@ export default function Home() {
               </a>
             ))}
           </nav>
+          <div className="w-full text-[13.5px] font-medium text-[var(--ink-soft)] sm:w-auto sm:text-right">
+            © 2026 Hivemedia · Ahmedabad, India
+          </div>
+          {/* Storyset credit, held back until the illustrations are
+              re-downloaded under a Freepik Premium subscription. Their free
+              licence requires this link. Keep it out of the div above: a JSX
+              comment cannot sit inside another one. */}
+          {/* <span className="mt-1 block">
+            Illustrations by{" "}
+            <a
+              href="https://storyset.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-[var(--hairline)] underline-offset-2 transition-colors hover:text-[var(--ink)] hover:decoration-[var(--ink)]"
+            >
+              Storyset
+            </a>
+          </span> */}
         </div>
       </footer>
     </div>
