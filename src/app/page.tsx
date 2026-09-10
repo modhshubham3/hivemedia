@@ -307,22 +307,6 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <div className="w-full text-[13.5px] font-medium text-[var(--ink-soft)] sm:w-auto sm:text-right">
-            © 2026 Hivemedia · Ahmedabad, India
-            {/* Storyset's licence is free for commercial use but requires a
-                credit link — this is it. Removing it breaks the terms. */}
-            <span className="mt-1 block">
-              Illustrations by{" "}
-              <a
-                href="https://storyset.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-[var(--hairline)] underline-offset-2 transition-colors hover:text-[var(--ink)] hover:decoration-[var(--ink)]"
-              >
-                Storyset
-              </a>
-            </span>
-          </div>
         </div>
       </footer>
     </div>
