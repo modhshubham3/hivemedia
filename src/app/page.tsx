@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import BrandLockup from "@/components/BrandLockup";
 import StoryButton from "@/components/StoryButton";
 import HeroArt from "@/components/HeroArt";
+import SectionArt from "@/components/SectionArt";
 
 // Descriptions are the client's own, lifted from their demo. Web Development
 // and Branding are additions, so those two lines are drafts to approve.
@@ -39,10 +40,34 @@ const SERVICES = [
   },
 ];
 
+// Each pillar carries the illustration that matches what it claims:
+// planning for strategy, an idea being built for creative, and a metrics
+// board for growth — nothing decorative-by-accident.
 const PILLARS = [
-  { title: "Strategy-led", body: "Every post has a reason to exist." },
-  { title: "Creative-first", body: "Ideas before templates, always." },
-  { title: "Growth-focused", body: "Measured against real numbers." },
+  {
+    title: "Strategy-led",
+    body: "Every post has a reason to exist.",
+    art: "/art-strategy.svg",
+    w: 500,
+    h: 500,
+    alt: "Planning a campaign at a laptop, with a target hit and a rising chart",
+  },
+  {
+    title: "Creative-first",
+    body: "Ideas before templates, always.",
+    art: "/art-creative-team.svg",
+    w: 750,
+    h: 500,
+    alt: "A team building a giant lightbulb together",
+  },
+  {
+    title: "Growth-focused",
+    body: "Measured against real numbers.",
+    art: "/art-dashboard.svg",
+    w: 750,
+    h: 500,
+    alt: "A social media metrics dashboard showing new users and engagement",
+  },
 ];
 
 const CONTACTS = [
@@ -149,6 +174,29 @@ export default function Home() {
             </h2>
           </Reveal>
 
+          {/* Two sides of the work — making it, and growing it — before the
+              list spells the services out. Capped and centred: at full
+              container width these two run over 800px each and swamp the
+              text below them. */}
+          <Reveal delay={80}>
+            <div className="mx-auto mt-12 grid max-w-[1200px] gap-8 sm:grid-cols-2 lg:gap-14">
+              <SectionArt
+                src="/art-content.svg"
+                width={500}
+                height={500}
+                alt="A studio shoot in progress, with camera, lights and a laptop"
+                className="aspect-[4/3]"
+              />
+              <SectionArt
+                src="/art-growth.svg"
+                width={500}
+                height={500}
+                alt="Watering a plant that grows into social media icons"
+                className="aspect-[4/3]"
+              />
+            </div>
+          </Reveal>
+
           <Reveal delay={120}>
             <ul className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
               {SERVICES.map((s) => (
@@ -200,12 +248,26 @@ export default function Home() {
       <section className="relative z-10 border-t border-[var(--hairline)]">
         <div className="mx-auto max-w-[1780px] px-[6vw] py-20 lg:px-14">
           <Reveal>
-            <div className="grid gap-y-9 sm:grid-cols-3 sm:gap-x-12 sm:gap-y-0">
+            {/* Stacks until lg: three illustrated columns at tablet width
+                leave each illustration about 150px across, too small to
+                read what it shows. */}
+            <div className="grid gap-y-12 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-0">
               {PILLARS.map((p) => (
                 <div
                   key={p.title}
-                  className="border-t-2 border-[var(--ink)] pt-7 first:border-t-0 first:pt-0 sm:border-l-2 sm:border-t-0 sm:pl-12 sm:pt-0 sm:first:border-l-0 sm:first:pl-0"
+                  className="border-t-2 border-[var(--ink)] pt-7 first:border-t-0 first:pt-0 lg:border-l-2 lg:border-t-0 lg:pl-12 lg:pt-0 lg:first:border-l-0 lg:first:pl-0"
                 >
+                  {/* Fixed height, not an aspect ratio: the first column has
+                      no left padding, so it is wider than the other two and
+                      a ratio would make its illustration taller and push the
+                      heading out of line with its neighbours. */}
+                  <SectionArt
+                    src={p.art}
+                    width={p.w}
+                    height={p.h}
+                    alt={p.alt}
+                    className="mb-7 h-[clamp(215px,17vw,260px)] max-w-[420px] lg:max-w-none"
+                  />
                   <h3 className="text-[clamp(1.55rem,2.6vw,2.05rem)] font-extrabold tracking-[-0.03em]">
                     {p.title}
                   </h3>
@@ -247,6 +309,19 @@ export default function Home() {
           </nav>
           <div className="w-full text-[13.5px] font-medium text-[var(--ink-soft)] sm:w-auto sm:text-right">
             © 2026 Hivemedia · Ahmedabad, India
+            {/* Storyset's licence is free for commercial use but requires a
+                credit link — this is it. Removing it breaks the terms. */}
+            <span className="mt-1 block">
+              Illustrations by{" "}
+              <a
+                href="https://storyset.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-[var(--hairline)] underline-offset-2 transition-colors hover:text-[var(--ink)] hover:decoration-[var(--ink)]"
+              >
+                Storyset
+              </a>
+            </span>
           </div>
         </div>
       </footer>

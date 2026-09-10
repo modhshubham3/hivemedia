@@ -2,9 +2,10 @@ import Image from "next/image";
 import { LOGO_SRC } from "@/components/BrandLockup";
 
 /**
- * Hero artwork: an unDraw illustration (Katerina Limpitsouni, undraw.co —
- * free for commercial use, no attribution required), recoloured to the
- * brand palette and carrying one badge per service listed on the page.
+ * Hero artwork: a Storyset illustration (freepik.com — free for commercial
+ * use with attribution; the credit is in the footer), recoloured to the
+ * brand palette. Only the stock accents were remapped — skin, hair and lip
+ * tones are left alone, since recolouring those turns faces yellow.
  *
  * The bee over it is the client's own artwork, not a redraw. Their file has
  * no alpha and the bee always sits on grey, so the grey is keyed out with an
@@ -61,10 +62,10 @@ export default function HeroArt() {
       </svg>
 
       <Image
-        src="/hero-illustration.svg"
-        alt="A content team producing and publishing social media content, with a badge for each service"
-        width={960}
-        height={757}
+        src="/art-social-media.svg"
+        alt="A social media post coming out of a phone, surrounded by Facebook and Instagram icons, a hashtag and likes"
+        width={500}
+        height={500}
         priority
         className="h-auto w-full"
       />
