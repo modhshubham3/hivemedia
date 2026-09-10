@@ -95,7 +95,7 @@ export default function Home() {
         >
           <BrandLockup className="wipe-highlight" />
         </a>
-        <div className="tagline hidden text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)] sm:block">
+        <div className="tagline hidden text-[13px] font-semibold uppercase tracking-[0.14em] text-[var(--ink)] sm:block">
           <span className="wipe-highlight">Creative Agency · Ahmedabad</span>
         </div>
       </header>
@@ -127,7 +127,7 @@ export default function Home() {
 
             <Reveal delay={240}>
               <NotifyForm />
-              <p className="mt-3.5 text-[12.5px] uppercase tracking-[0.14em] text-[var(--ink-soft)]">
+              <p className="mt-4 text-[14px] font-semibold uppercase tracking-[0.1em] text-[var(--ink)]">
                 Launching 2026 · hivemedia.co.in
               </p>
             </Reveal>
@@ -154,7 +154,7 @@ export default function Home() {
               {SERVICES.map((s) => (
                 <li
                   key={s.name}
-                  className="border-t border-[var(--hairline)] pt-6"
+                  className="border-t-[1.5px] border-[rgba(18,17,16,0.35)] pt-6"
                 >
                   <div className="flex items-baseline gap-3">
                     <span
@@ -165,12 +165,12 @@ export default function Home() {
                       {s.name}
                     </h3>
                   </div>
-                  <p className="mt-2.5 pl-[22px] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
+                  <p className="mt-3 pl-[22px] text-[17.5px] font-medium leading-relaxed text-[var(--ink-soft)]">
                     {s.body}
                   </p>
                 </li>
               ))}
-              <li className="border-t border-[var(--hairline)] pt-6">
+              <li className="border-t-[1.5px] border-[rgba(18,17,16,0.35)] pt-6">
                 <div className="flex items-baseline gap-3">
                   <span
                     aria-hidden="true"
@@ -180,7 +180,7 @@ export default function Home() {
                     Something else?
                   </h3>
                 </div>
-                <p className="mt-2.5 pl-[22px] text-[16.5px] leading-relaxed text-[var(--ink-soft)]">
+                <p className="mt-3 pl-[22px] text-[17.5px] font-medium leading-relaxed text-[var(--ink-soft)]">
                   Tell us what you&rsquo;re building and we&rsquo;ll say
                   straight away whether it&rsquo;s something we can do well.{" "}
                   <a
@@ -200,13 +200,16 @@ export default function Home() {
       <section className="relative z-10 border-t border-[var(--hairline)]">
         <div className="mx-auto max-w-[1780px] px-[6vw] py-20 lg:px-14">
           <Reveal>
-            <div className="grid gap-10 sm:grid-cols-3 sm:gap-12">
+            <div className="grid gap-y-9 sm:grid-cols-3 sm:gap-x-12 sm:gap-y-0">
               {PILLARS.map((p) => (
-                <div key={p.title} className="border-t-2 border-[var(--ink)] pt-6">
+                <div
+                  key={p.title}
+                  className="border-t-2 border-[var(--ink)] pt-7 first:border-t-0 first:pt-0 sm:border-l-2 sm:border-t-0 sm:pl-12 sm:pt-0 sm:first:border-l-0 sm:first:pl-0"
+                >
                   <h3 className="text-[clamp(1.55rem,2.6vw,2.05rem)] font-extrabold tracking-[-0.03em]">
                     {p.title}
                   </h3>
-                  <p className="mt-3 max-w-[40ch] text-[18.5px] font-medium leading-relaxed text-[var(--ink)]">
+                  <p className="mt-3 max-w-[24ch] text-[18.5px] font-medium leading-[1.5] text-[var(--ink)]">
                     {p.body}
                   </p>
                 </div>
@@ -227,14 +230,14 @@ export default function Home() {
                 {...(c.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
-                className="group relative inline-flex items-center gap-2 py-1 text-[14px] text-[var(--ink-soft)] transition-colors hover:text-[var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--ink)] after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="group relative inline-flex items-center gap-2 py-1 text-[16px] font-semibold text-[var(--ink)] transition-colors hover:text-[var(--ink-soft)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)] after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--ink)] after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.8"
-                  className="h-[15px] w-[15px] shrink-0"
+                  strokeWidth="2"
+                  className="h-[18px] w-[18px] shrink-0"
                 >
                   {c.icon}
                 </svg>
@@ -242,7 +245,7 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <div className="w-full text-[12px] text-[var(--ink-soft)] sm:w-auto sm:text-right">
+          <div className="w-full text-[13.5px] font-medium text-[var(--ink-soft)] sm:w-auto sm:text-right">
             © 2026 Hivemedia · Ahmedabad, India
           </div>
         </div>

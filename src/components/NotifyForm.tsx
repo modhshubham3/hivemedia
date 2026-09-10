@@ -29,13 +29,13 @@ export default function NotifyForm() {
         }}
         placeholder="your@email.com"
         aria-label="Email address"
-        className="w-[min(320px,72vw)] rounded-full border-[1.5px] border-[var(--ink)] bg-white px-[22px] py-[15px] text-[15px] text-[var(--ink)] outline-none transition-shadow placeholder:text-[var(--ink-soft)] focus:shadow-hard"
+        className="w-[min(320px,72vw)] rounded-full border-[1.5px] border-[var(--ink)] bg-white px-[22px] py-[15px] text-[16px] font-medium text-[var(--ink)] outline-none transition-shadow placeholder:text-[var(--ink-soft)] focus:shadow-hard"
       />
       <MagneticButton
         variant="dark"
         size="md"
         onClick={submit}
-        className="text-[15px] font-semibold"
+        className="text-[16px] font-semibold"
       >
         Notify me
       </MagneticButton>

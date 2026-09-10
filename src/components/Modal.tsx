@@ -74,11 +74,11 @@ export default function Modal({
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--cream)] transition-all hover:bg-[var(--yellow)] hover:shadow-hard focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ink)]"
+          className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full border-[2px] border-[var(--ink)] bg-[var(--cream)] transition-all hover:bg-[var(--yellow)] hover:shadow-hard focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ink)]"
         >
           <svg
             viewBox="0 0 24 24"
-            className="h-4 w-4"
+            className="h-[18px] w-[18px]"
             fill="none"
             stroke="currentColor"
             strokeWidth="2.4"

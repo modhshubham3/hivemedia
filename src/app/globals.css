@@ -15,12 +15,12 @@
   --cream-alt: #F8F4EA;
   --cream-deep: #EFE9DA;
   --ink: #121110;
-  --ink-soft: #6E685C;
+  --ink-soft: #534F46;   /* was #6E685C — 5.7:1, used by every secondary string */
   --yellow: #FFCE00;      /* sampled from the client's logo */
   --yellow-deep: #D9A800;
   --yellow-pale: #FBEFC8;
   --white: #FFFFFF;
-  --hairline: rgba(18, 17, 16, 0.10);
+  --hairline: rgba(18, 17, 16, 0.22);  /* 0.10 rendered invisible */
 
   /* Lightswind / Tailwind tokens */
   --background: 44 69% 95%;        /* cream page ground */
@@ -38,7 +38,7 @@
   --secondary-foreground: 31 6% 7%;
 
   --muted: 43 57% 89%;
-  --muted-foreground: 40 9% 38%;
+  --muted-foreground: 40 9% 30%;
 
   --accent: 48 100% 50%;
   --accent-foreground: 31 6% 7%;
@@ -71,7 +71,7 @@
   --secondary: 43 57% 89%;
   --secondary-foreground: 31 6% 7%;
   --muted: 43 57% 89%;
-  --muted-foreground: 40 9% 38%;
+  --muted-foreground: 40 9% 30%;
   --accent: 48 100% 50%;
   --accent-foreground: 31 6% 7%;
   --border: 31 6% 7%;
@@ -134,7 +134,7 @@ body {
   font-size: clamp(1.15rem, 1.6vw, 1.5rem);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
 }
@@ -505,7 +505,7 @@ body {
   transition: color 0.3s ease;
 }
 .tagline:hover {
-  color: var(--ink);
+  color: var(--ink-soft);
 }
 
 /* ── Play button ───────────────────────────────────────── */

@@ -24,7 +24,7 @@ export default function StoryButton() {
         aria-haspopup="dialog"
         aria-label="Play our story"
         title="Play our story"
-        className="play-btn relative ml-2 inline-grid h-7 w-7 translate-y-[5px] place-items-center rounded-full bg-[var(--ink)] align-baseline transition-transform duration-200 hover:scale-115 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--ink)]"
+        className="play-btn relative ml-2 inline-grid h-7 w-7 after:absolute after:-inset-2 after:content-[''] translate-y-[5px] place-items-center rounded-full bg-[var(--ink)] align-baseline transition-transform duration-200 hover:scale-115 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--ink)]"
       >
         <svg viewBox="0 0 24 24" className="ml-[2px] h-3 w-3" aria-hidden="true">
           <path d="M8 5.5 L19 12 L8 18.5 Z" fill="var(--cream)" />
@@ -67,7 +67,7 @@ export default function StoryButton() {
           {LINES.map((l, i) => (
             <p
               key={l.text}
-              className="line-rise text-[clamp(1.05rem,2vw,1.35rem)] leading-snug text-[var(--ink-soft)]"
+              className="line-rise text-[clamp(1.1rem,2vw,1.4rem)] font-medium leading-relaxed text-[var(--ink-soft)]"
               style={{ animationDelay: `${1.15 + i * 0.22}s` }}
             >
               {l.text}
@@ -89,11 +89,11 @@ export default function StoryButton() {
         >
           <a
             href="mailto:hivemedia.co.in@gmail.com"
-            className="rounded-full bg-[var(--ink)] px-6 py-3 text-[14px] font-semibold text-[var(--cream)] transition-all hover:-translate-y-0.5 hover:shadow-hard-lg"
+            className="rounded-full bg-[var(--ink)] px-7 py-3.5 text-[16px] font-semibold text-[var(--cream)] transition-all hover:-translate-y-0.5 hover:shadow-hard-lg"
           >
             Start a project
           </a>
-          <span className="text-[13px] text-[var(--ink-soft)]">
+          <span className="text-[14.5px] font-medium text-[var(--ink-soft)]">
             Launching 2026 · hivemedia.co.in
           </span>
         </div>

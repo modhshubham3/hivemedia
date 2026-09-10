@@ -29,7 +29,7 @@ export default function ComingSoonBadge() {
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
         title="Open the launch note"
-        className="group inline-flex cursor-pointer items-center gap-2.5 rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--yellow)] py-2 pl-4 pr-2 text-[11px] font-bold uppercase tracking-[0.2em] shadow-hard transition-all duration-200 hover:-translate-y-0.5 hover:shadow-hard-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
+        className="group inline-flex cursor-pointer items-center gap-2.5 rounded-full border-[1.5px] border-[var(--ink)] bg-[var(--yellow)] py-2.5 pl-5 pr-2.5 text-[12.5px] font-extrabold uppercase tracking-[0.16em] shadow-hard transition-all duration-200 hover:-translate-y-0.5 hover:shadow-hard-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ink)]"
       >
         <span className="dot-ring relative h-[7px] w-[7px] rounded-full bg-[var(--ink)]" />
         Coming Soon
@@ -118,7 +118,7 @@ export default function ComingSoonBadge() {
         </h2>
 
         <p
-          className="line-rise mx-auto mt-5 max-w-[40ch] text-[15px] leading-relaxed text-[var(--ink-soft)]"
+          className="line-rise mx-auto mt-6 max-w-[38ch] text-[17px] font-medium leading-relaxed text-[var(--ink-soft)]"
           style={{ animationDelay: "0.95s" }}
         >
           The hive is still being built. Drop your email and we&rsquo;ll tell
@@ -133,7 +133,7 @@ export default function ComingSoonBadge() {
           <div className="flex justify-center [&>div]:justify-center">
             <NotifyForm />
           </div>
-          <p className="mt-4 text-[12px] uppercase tracking-[0.18em] text-[var(--ink-soft)]">
+          <p className="mt-5 text-[13.5px] font-semibold uppercase tracking-[0.1em] text-[var(--ink-soft)]">
             Launching 2026 · Ahmedabad, India
           </p>
         </div>
