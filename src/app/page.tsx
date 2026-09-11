@@ -72,8 +72,8 @@ const PILLARS = [
 
 const CONTACTS = [
   {
-    href: "mailto:hivemedia.co.in@gmail.com",
-    label: "hivemedia.co.in@gmail.com",
+    href: "mailto:hello@hivemedia.co.in",
+    label: "hello@hivemedia.co.in",
     icon: (
       <>
         <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -232,10 +232,10 @@ export default function Home() {
                   Tell us what you&rsquo;re building and we&rsquo;ll say
                   straight away whether it&rsquo;s something we can do well.{" "}
                   <a
-                    href="mailto:hivemedia.co.in@gmail.com"
+                    href="mailto:hello@hivemedia.co.in"
                     className="font-semibold text-[var(--ink)] underline decoration-[var(--yellow)] decoration-2 underline-offset-4 transition-colors hover:decoration-[var(--ink)]"
                   >
-                    hivemedia.co.in@gmail.com
+                    hello@hivemedia.co.in
                   </a>
                 </p>
               </li>

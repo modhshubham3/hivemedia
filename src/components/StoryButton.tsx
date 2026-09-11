@@ -88,7 +88,7 @@ export default function StoryButton() {
           style={{ animationDelay: "2.4s" }}
         >
           <a
-            href="mailto:hivemedia.co.in@gmail.com"
+            href="mailto:hello@hivemedia.co.in"
             className="rounded-full bg-[var(--ink)] px-7 py-3.5 text-[16px] font-semibold text-[var(--cream)] transition-all hover:-translate-y-0.5 hover:shadow-hard-lg"
           >
             Start a project
