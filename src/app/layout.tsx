@@ -31,12 +31,23 @@ export const metadata: Metadata = {
     siteName: "Hive Media",
     locale: "en_IN",
     type: "website",
+    // Without this the card renders as bare text, and twitter's
+    // summary_large_image below promises an image that does not exist.
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Hivemedia — we turn brands into buzz. Creative agency, Ahmedabad.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hive Media — Coming Soon",
     description:
       "A digital marketing agency for brands that want to be seen. Launching soon.",
+    images: ["/og-image.png"],
   },
 };
 
